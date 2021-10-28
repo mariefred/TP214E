@@ -1,2 +1,5 @@
 # TP214E
-Vous devez FORK ce repository pour commencer votre travail.
+Membres de l'équipe:
+Marie-Frédérick Côté
+Sarah Legendre
+François Potvin

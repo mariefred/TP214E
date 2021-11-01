@@ -10,6 +10,30 @@ namespace TP214E.Data
 {
     public class DAL
     {
+        private MongoClient dbClient;
+
+        //public MongoClient OuvrirConnexion()
+        //{ }
+
+
+        //public List<Aliment> ObtenirListeAliments()
+        //{
+        //    List<Aliment> listeAliments = new List<Aliment>();
+
+        //    try
+        //    {
+        //        var dbInventaire =
+        //    }
+
+
+        //}
+
+
+
+
+
+
+
         public MongoClient mongoDBClient;
         public DAL()
         {
@@ -23,7 +47,8 @@ namespace TP214E.Data
             {
                 IMongoDatabase db = mongoDBClient.GetDatabase("TP2DB");
                 aliments = db.GetCollection<Aliment>("Aliments").Aggregate().ToList();
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
 
@@ -34,9 +59,11 @@ namespace TP214E.Data
         private MongoClient OuvrirConnexion()
         {
             MongoClient dbClient = null;
-            try{
+            try
+            {
                 dbClient = new MongoClient("mongodb://localhost:27017/TP2DB");
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }

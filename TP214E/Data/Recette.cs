@@ -66,15 +66,15 @@ namespace TP214E.Data
             set { margeProfit = value; }
         }
 
-        public decimal CalculerCoutant()
-        {
-            foreach (Ingredient ingredient in listeIngredients)
-            {
-                coutant += ingredient.Aliment.CoutAliment;
-            }
+        //public decimal CalculerCoutant()
+        //{
+        //    foreach (Ingredient ingredient in listeIngredients)
+        //    {
+        //        coutant += ingredient.Aliment.CoutAliment;
+        //    }
 
-            return coutant;
-        }
+        //    return coutant;
+        //}
 
         public decimal CalculerVendant()
         {

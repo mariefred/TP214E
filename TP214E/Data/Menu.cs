@@ -1,14 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace TP214E.Data
 {
     public class Menu
     {
+        [BsonId]
+        private ObjectId id;
+
+        [BsonElement ("choixPlats")]
         private List<Recette> choixPlats;
+
+        [BsonElement ("choixBreuvage")]
         private List<Aliment> choixBreuvage;
 
+        [BsonConstructor]
         public Menu(List<Recette> pListePlats, List<Aliment> pListeBreuvages)
         {
             choixPlats = pListePlats;

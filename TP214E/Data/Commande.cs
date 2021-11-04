@@ -2,15 +2,29 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace TP214E.Data
 {
     public class Commande
     {
+        [BsonId]
         private ObjectId id;
+
+        [BsonElement ("noCommande")]
         private string noCommande;
+
+        [BsonElement ("listeArticleCommande")]
         private List<ArticleCommande> listeArticleCommande;
+
+        [BsonElement ("coutTotalCommande")]
         private decimal coutTotalCommande;
+
+        [BsonConstructor]
+        public Commande(string pNoCommande)
+        {
+            this.noCommande = pNoCommande;
+        }
 
         public ObjectId Id
         {

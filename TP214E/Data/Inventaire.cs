@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace TP214E.Data
 {
@@ -14,6 +15,7 @@ namespace TP214E.Data
             set { listeAliments = value; }
         }
 
+        [BsonConstructor]
         public Inventaire()
         {
             listeAliments = new List<Aliment>();

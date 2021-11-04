@@ -3,25 +3,40 @@ using System.Collections.Generic;
 using System.Text;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace TP214E.Data
 {
     public class Recette
     {
+        [BsonId]
         private ObjectId id;
+
+        [BsonElement ("nomRecette")]
         private string nomrecette;
+
+        [BsonElement ("listeIngredients")]
         private List<Ingredient> listeIngredients;
+
+        [BsonElement ("instructions")]
         private List<string> instructions;
+
+        [BsonElement ("rendement")]
         private double rendement;
+
+        [BsonElement ("coutant")]
         private decimal coutant;
+
+        [BsonElement ("vendant")]
         private decimal vendant;
+
+        [BsonElement ("margeProfit")]
         private decimal margeProfit;
 
-
-        public ObjectId Id
+        [BsonConstructor]
+        public Recette(string pNomrecette)
         {
-            get { return id; }
-            set { id = value; }
+            this.nomrecette = pNomrecette;
         }
 
         public string Nomrecette

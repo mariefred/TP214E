@@ -2,45 +2,63 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TP214E.Enumeration;
+
 
 namespace TP214E.Data
 {
     public class Aliment
     {
-        private ObjectId id { get; set; }
-        private string nom { get; set; }
-        private int quantite { get; set; }
-        private string uniteMesure { get; set; }
-        private DateTime dateExpiration { get; set; }
+        private ObjectId id;
+        private string nom;
+        private double quantite;
+        private UniteMesure uniteMesure;
 
-        private decimal coutAliment;
+        private decimal coutAchat;
+        private decimal coutVente;
 
-        public Aliment(string pNom, int pQuantite, string pUniteMesure, DateTime pDateExpiration, decimal pCoutAliment)
+        public Aliment(string pNom, int pQuantite, UniteMesure pUniteMesure, decimal pCoutAliment)
         {
             nom = pNom;
             quantite = pQuantite;
             uniteMesure = pUniteMesure;
-            dateExpiration = pDateExpiration;
-            coutAliment = pCoutAliment;
+            coutAchat = pCoutAliment;
         }
 
-        public decimal CoutAliment
+        public ObjectId Id
         {
-            get { return coutAliment; }
-            set { coutAliment = value; }
+            get { return id; }
+            set { id = value; }
         }
 
-
-        public void AugmenterQuantite(int pQuantite)
+        public string Nom
         {
-            quantite += pQuantite;
+            get { return nom; }
+            set { nom = value; }
         }
 
-        public void DiminuerQuantite(int pQuantite)
+        public double Quantite
         {
-            quantite -= pQuantite;
+            get { return quantite; }
+            set { quantite = value; }
         }
 
+        public UniteMesure UniteDeMesure
+        {
+            get { return uniteMesure; }
+            set { uniteMesure = value; }
+        }
 
+        public decimal CoutAchat
+        {
+            get { return coutAchat; }
+            set { coutAchat = value; }
+        }
+
+        public decimal CoutVente
+        {
+            get { return coutVente; }
+            set { coutVente = value; }
+        }
     }
 }

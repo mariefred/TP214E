@@ -7,11 +7,11 @@ namespace TP214E.Data
 {
     public class ArticleCommande
     {
-        private ObjectId id { get; set; }
-        private int quantiteArticle { get; set; }
-        private string nomArticle { get; set; }
-        private string noCommande { get; set; }
-        private decimal coutArticle { get; set; }
+        private ObjectId id;
+        private int quantiteArticle;
+        private string nomArticle;
+        private string noCommande;
+        private decimal coutArticle;
 
         public ArticleCommande(int pQuantiteArticle, string pNomArticle)
         {
@@ -19,11 +19,34 @@ namespace TP214E.Data
             nomArticle = pNomArticle;
         }
 
+        public ObjectId Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public int QuantiteArticle
+        {
+            get { return quantiteArticle; }
+            set { quantiteArticle = value; }
+        }
+
+        public string NomArticle
+        {
+            get { return nomArticle; }
+            set { nomArticle = value; }
+        }
+
+        public string NoCommande
+        {
+            get { return noCommande; }
+            set { noCommande = value; }
+        }
+
         public decimal CoutArticle
         {
             get { return coutArticle; }
             set { coutArticle = value; }
         }
-
     }
 }

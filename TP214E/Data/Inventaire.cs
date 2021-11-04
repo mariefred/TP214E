@@ -4,15 +4,19 @@ using System.Text;
 
 namespace TP214E.Data
 {
-    class Inventaire
+    public class Inventaire
     {
-        List<Aliment> listeAliments { get; set; }
+        private List<Aliment> listeAliments;
+
+        public List<Aliment> ListeAliments
+        {
+            get { return listeAliments; }
+            set { listeAliments = value; }
+        }
 
         public Inventaire()
         {
             listeAliments = new List<Aliment>();
         }
-
-       
     }
 }

@@ -9,21 +9,33 @@ namespace TP214E.Data
 {
     public class Ingredient
     {
-        private Aliment nomAliment;
-        private double quantite { get; set; }
-
+        private Aliment aliment;
+        private double quantite;
         private UniteMesure uniteDeMesure;
 
-        public Ingredient(Aliment pNomAliment)
+        public Ingredient(Aliment pAliment, double pQuantite, UniteMesure pUniteDeMesure)
         {
-            nomAliment = pNomAliment;
+            this.aliment = pAliment;
+            this.quantite = pQuantite;
+            this.uniteDeMesure = pUniteDeMesure;
         }
 
-        public Aliment NomAliment
+        public Aliment Aliment
         {
-            get { return nomAliment; }
-            set { nomAliment = value; }
+            get { return aliment; }
+            set { aliment = value; }
         }
 
+        public double Quantite
+        {
+            get { return quantite; }
+            set { quantite = value; }
+        }
+
+        public UniteMesure UniteDeMesure
+        {
+            get { return uniteDeMesure; }
+            set { uniteDeMesure = value; }
+        }
     }
 }

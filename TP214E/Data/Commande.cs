@@ -7,10 +7,35 @@ namespace TP214E.Data
 {
     public class Commande
     {
-        private ObjectId id { get; set; }
-        private string noCommande { get; set; }
-        private List<ArticleCommande> listeArticleCommande { get; set; }
-        private decimal coutTotalCommande { get; set; }
+        private ObjectId id;
+        private string noCommande;
+        private List<ArticleCommande> listeArticleCommande;
+        private decimal coutTotalCommande;
+
+        public ObjectId Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string NoCommande
+        {
+            get { return noCommande; }
+            set { noCommande = value; }
+        }
+
+        public List<ArticleCommande> ListeArticleCommande
+        {
+            get { return listeArticleCommande; }
+            set { listeArticleCommande = value; }
+        }
+
+        public decimal CoutTotalCommande
+        {
+            get { return coutTotalCommande; }
+            set { coutTotalCommande = value; }
+        }
+
 
         public void AjouterArticleACommande(ArticleCommande pArticle)
         {

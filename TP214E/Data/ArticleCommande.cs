@@ -15,19 +15,17 @@ namespace TP214E.Data
         private int quantiteArticle;
 
         [BsonElement ("nomArticle")]
-        private string nomArticle;
-
-        [BsonElement ("noCommande")]
-        private string noCommande;
+        private Recette article;
 
         [BsonElement ("coutArticle")]
         private decimal coutArticle;
 
         [BsonConstructor]
-        public ArticleCommande(int pQuantiteArticle, string pNomArticle)
+        public ArticleCommande(int pQuantiteArticle, Recette pArticle)
         {
             quantiteArticle = pQuantiteArticle;
-            nomArticle = pNomArticle;
+            article = pArticle;
+            CalculerCoutArticle();
         }
 
         public ObjectId Id
@@ -42,22 +40,21 @@ namespace TP214E.Data
             set { quantiteArticle = value; }
         }
 
-        public string NomArticle
+        public Recette Article
         {
-            get { return nomArticle; }
-            set { nomArticle = value; }
-        }
-
-        public string NoCommande
-        {
-            get { return noCommande; }
-            set { noCommande = value; }
+            get { return article; }
+            set { article = value; }
         }
 
         public decimal CoutArticle
         {
             get { return coutArticle; }
             set { coutArticle = value; }
+        }
+
+        public void CalculerCoutArticle()
+        {
+            coutArticle = quantiteArticle * article.Coutant;
         }
     }
 }

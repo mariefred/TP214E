@@ -23,7 +23,8 @@ namespace TP214E.Data
         [BsonConstructor]
         public Commande(string pNoCommande)
         {
-            this.noCommande = pNoCommande;
+            noCommande = pNoCommande;
+            listeArticleCommande = new List<ArticleCommande>();
         }
 
         public ObjectId Id
@@ -61,13 +62,14 @@ namespace TP214E.Data
             listeArticleCommande.Remove(pArticle);
         }
 
-        public decimal CalculerCoutCommande(List<ArticleCommande> pListe)
+
+        //TODO: trouver comment mettre deux décimales.
+        public void CalculerCoutCommande(List<ArticleCommande> pListe)
         {
             foreach (ArticleCommande article in listeArticleCommande)
             {
                 coutTotalCommande += article.CoutArticle;
             }
-            return coutTotalCommande;  
         }
 
     }

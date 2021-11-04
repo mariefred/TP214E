@@ -10,31 +10,9 @@ namespace TP214E.Data
 {
     public class DAL
     {
-        private MongoClient dbClient;
-
-        //public MongoClient OuvrirConnexion()
-        //{ }
-
-
-        //public List<Aliment> ObtenirListeAliments()
-        //{
-        //    List<Aliment> listeAliments = new List<Aliment>();
-
-        //    try
-        //    {
-        //        var dbInventaire =
-        //    }
-
-
-        //}
-
-
-
-
-
-
-
         public MongoClient mongoDBClient;
+        
+        
         public DAL()
         {
             mongoDBClient = OuvrirConnexion();

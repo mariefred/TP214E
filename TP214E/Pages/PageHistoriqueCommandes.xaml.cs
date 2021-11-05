@@ -14,24 +14,18 @@ using System.Windows.Shapes;
 namespace TP214E.Pages
 {
     /// <summary>
-    /// Logique d'interaction pour PageCommandes.xaml
+    /// Logique d'interaction pour PageHistoriqueCommandes.xaml
     /// </summary>
-    public partial class PageCommandes : Page
+    public partial class PageHistoriqueCommandes : Page
     {
-        public PageCommandes()
+        public PageHistoriqueCommandes()
         {
             InitializeComponent();
         }
 
         private void BtnRetourAccueil_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Pages/PageAccueil.xaml", UriKind.Relative));
-
-        }
-
-        private void BtnHistorique_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Pages/PageHistoriqueCommandes.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Pages/PageCommandes.xaml", UriKind.Relative));
 
         }
     }

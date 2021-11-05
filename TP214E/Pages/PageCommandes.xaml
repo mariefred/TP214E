@@ -7,7 +7,45 @@
         mc:Ignorable="d"
         d:DesignHeight="450" d:DesignWidth="800"
         Title="PageCommandes" >
-    <Grid>
-        
+    <Grid Background="Black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="1" Content="PRISE DE COMMANDE" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
+        <Label Grid.Row="1" Grid.Column="3" Content="COMMANDE" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
+        <Label Grid.Row="2" Grid.Column="1" Content="Liste des plats" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
+        <Label Grid.Row="2" Grid.Column="3" Content="Quantités - Items - Prix" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
+
+        <ListBox x:Name="LstPlats" Grid.Row="3" Grid.Column="1" />
+        <ListBox x:Name="LstCommande" Grid.Row="3" Grid.Column="3" />
+
+        <Button x:Name="BtnRetourAccueil" Grid.Row="0" Grid.Column="0" Content="retour" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="80" Click="BtnRetourAccueil_Click"/>
+
+        <StackPanel Grid.Row="5" Grid.Column="3" Orientation="Horizontal"  >
+            <Border Background="black">
+                <Button 
+                    x:Name="BtnCommander" Content="Commander" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="90" />
+            </Border>
+            <Border Background="black">
+                <Button x:Name="BtnEffacer" Content="Effacer" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="76"/>
+            </Border>
+            <Border Background="black">
+                <Button x:Name="BtnHistorique" Content="Historique" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="80" Click="BtnHistorique_Click"/>
+            </Border>
+        </StackPanel>
+
+
     </Grid>
 </Page>

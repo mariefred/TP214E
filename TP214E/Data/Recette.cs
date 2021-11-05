@@ -34,6 +34,7 @@ namespace TP214E.Data
         public Recette(string pNomrecette)
         {
             this.nomRecette = pNomrecette;
+            this.ListeIngredients = new List<(double, Aliment)>();
         }
 
         public string Nomrecette
@@ -79,5 +80,10 @@ namespace TP214E.Data
         //        coutant += aliment.CoutAchat;
         //    }
         //}
+
+        public override string ToString()
+        {
+            return String.Format("{0:c} - {1}", Vendant, Nomrecette);
+        }
     }
 }

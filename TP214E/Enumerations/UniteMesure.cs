@@ -6,10 +6,11 @@ namespace TP214E.Enumeration
 {
     public enum UniteMesure
     {
-       milligramme,
        gramme,
+       kilogramme,
        millilitre,
        litre,
+       unite,
        cuillère_à_thé,
        cuillère_à_soupe,
        tasse

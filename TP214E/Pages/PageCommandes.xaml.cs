@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TP214E.Data;
 
 namespace TP214E.Pages
 {
@@ -21,12 +22,7 @@ namespace TP214E.Pages
         public PageCommandes()
         {
             InitializeComponent();
-        }
-
-        private void BtnRetourAccueil_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Pages/PageAccueil.xaml", UriKind.Relative));
-
+            AjouterPlatsAEcran();
         }
 
         private void BtnHistorique_Click(object sender, RoutedEventArgs e)
@@ -34,5 +30,18 @@ namespace TP214E.Pages
             this.NavigationService.Navigate(new Uri("Pages/PageHistoriqueCommandes.xaml", UriKind.Relative));
 
         }
+        private void BtnRetourAccueil_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Pages/PageAccueil.xaml", UriKind.Relative));
+        }
+
+        private void AjouterPlatsAEcran()
+        {
+            foreach (Recette plat in PageAccueil._recettes)
+            {
+                LstPlats.Items.Add(plat);
+            }
+        }
+
     }
 }

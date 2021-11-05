@@ -54,7 +54,7 @@ namespace TP214E.Data
 
         public void CalculerCoutArticle()
         {
-            coutArticle = quantiteArticle * article.Coutant;
+            coutArticle = quantiteArticle * CoutArticle;
         }
     }
 }

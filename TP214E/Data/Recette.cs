@@ -13,61 +13,58 @@ namespace TP214E.Data
         private ObjectId id;
 
         [BsonElement ("nomRecette")]
-        private string nomrecette;
+        private string nomRecette;
 
         [BsonElement ("listeIngredients")]
-        private List<Ingredient> listeIngredients;
+        private List<(double, Aliment)> listeIngredients;
 
-        [BsonElement ("instructions")]
-        private List<string> instructions;
+        //[BsonElement ("instructions")]
+        //private List<string> instructions;
 
-        [BsonElement ("rendement")]
-        private double rendement;
+        //[BsonElement ("rendement")]
+        //private double rendement;
 
-        [BsonElement ("coutant")]
-        private decimal coutant;
+        //[BsonElement ("coutant")]
+        //private decimal coutant;
 
         [BsonElement ("vendant")]
         private decimal vendant;
 
-        [BsonElement ("margeProfit")]
-        private decimal margeProfit;
-
         [BsonConstructor]
         public Recette(string pNomrecette)
         {
-            this.nomrecette = pNomrecette;
+            this.nomRecette = pNomrecette;
         }
 
         public string Nomrecette
         {
-            get { return nomrecette; }
-            set { nomrecette = value; }
+            get { return nomRecette; }
+            set { nomRecette = value; }
         }
 
-        public List<Ingredient> ListeIngredients
+        public List<(double, Aliment)> ListeIngredients
         {
             get { return listeIngredients; }
             set { listeIngredients = value; }
         }
 
-        public List<string> Instructions
-        {
-            get { return instructions; }
-            set { instructions = value; }
-        }
+        //public List<string> Instructions
+        //{
+        //    get { return instructions; }
+        //    set { instructions = value; }
+        //}
 
-        public double Rendement
-        {
-            get { return rendement; }
-            set { rendement = value; }
-        }
+        //public double Rendement
+        //{
+        //    get { return rendement; }
+        //    set { rendement = value; }
+        //}
 
-        public decimal Coutant
-        {
-            get { return coutant; }
-            set { coutant = value; }
-        }
+        //public decimal Coutant
+        //{
+        //    get { return coutant; }
+        //    set { coutant = value; }
+        //}
 
         public decimal Vendant
         {
@@ -75,25 +72,12 @@ namespace TP214E.Data
             set { vendant = value; }
         }
 
-        public decimal MargeProfit
-        {
-            get { return margeProfit; }
-            set { margeProfit = value; }
-        }
-
-        //public decimal CalculerCoutant()
+        //public void CalculerCoutant()
         //{
-        //    foreach (Ingredient ingredient in listeIngredients)
+        //    foreach ((double quantite, Aliment aliment) in listeIngredients)
         //    {
-        //        coutant += ingredient.Aliment.CoutAliment;
+        //        coutant += aliment.CoutAchat;
         //    }
-
-        //    return coutant;
         //}
-
-        public decimal CalculerVendant()
-        {
-            return vendant = coutant + (coutant * margeProfit);
-        }
     }
 }

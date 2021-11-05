@@ -32,7 +32,7 @@ namespace TP214E.Data
         public Aliment(string pNom, int pQuantite, UniteMesure pUniteMesure, decimal pCoutAliment)
         {
             nom = pNom;
-            quantite = pQuantite;
+            quantite = pQuantite;   
             uniteMesure = pUniteMesure;
             coutAchat = pCoutAliment;
         }
@@ -71,6 +71,16 @@ namespace TP214E.Data
         {
             get { return coutVente; }
             set { coutVente = value; }
+        }
+
+        public void AugmenterQuantite(double pQuantite)
+        {
+            quantite +=  pQuantite;
+        }
+
+        public void DiminuerQuantite(double pQuantite)
+        {
+            quantite -= pQuantite;
         }
     }
 }

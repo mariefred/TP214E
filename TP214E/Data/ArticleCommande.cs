@@ -54,7 +54,19 @@ namespace TP214E.Data
 
         public void CalculerCoutArticle()
         {
-            coutArticle = quantiteArticle * CoutArticle;
+            //coutArticle = quantiteArticle * CoutArticle;
+            // TODO : C'est peut-être pas une méthode utile ici. On calcul un cout mais seulement 1 fois lorsque le constrcuteur est créer.
+            coutArticle = QuantiteArticle * Article.Vendant;
+        }
+
+        public decimal CalculerVendantArticle()
+        {
+            return coutArticle = QuantiteArticle * Article.Vendant;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} - {1} = {2:c}", QuantiteArticle, Article, coutArticle);
         }
     }
 }

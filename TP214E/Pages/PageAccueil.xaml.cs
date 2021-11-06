@@ -22,7 +22,8 @@ namespace TP214E
     public partial class PageAccueil : Page
     {
         public static List<Recette> _recettes;
-        public static List<Aliment> _inventaire;
+        public static List<Aliment> _inventaire = new List<Aliment>();
+        public static List<Commande> _commandes = new List<Commande>();
         private DAL dal;
 
         public PageAccueil()
@@ -30,7 +31,6 @@ namespace TP214E
             InitializeComponent();
             dal = new DAL();
             _recettes = new List<Recette>();
-            _inventaire = new List<Aliment>();
             CreerRecetteBurgerBLT();
             CreerRecetteFishNChips();
         }

@@ -26,8 +26,17 @@
 
         <Label Grid.Row="1" Grid.Column="1" Content="HISTORIQUE DE COMMANDE" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
         <Label Grid.Row="2" Grid.Column="1" Content="Liste des commandes" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
+        <Label Grid.Row="3" Grid.Column="3" Content="No. Commande : " Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
+        <Label x:Name="LblNoCommande" Grid.Row="3" Grid.Column="3" Foreground="#FFF" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
+        <Label Grid.Row="3" Grid.Column="3" Content="Articles :" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0" Padding="5, 20,0,0"/>
+        <Label Grid.Row="3" Grid.Column="3" Content="Total de la commande :" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0" />
+        <Label x:Name="LblTotal" Grid.Row="3" Grid.Column="3" Foreground="#FFF" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0" />
+        
+        <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Vertical"  >
+            <Label x:Name="LblArticles" Grid.Row="3" Grid.Column="3" Foreground="#FFF" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0" Padding="0, 20,0,0"/>
+        </StackPanel>
 
-        <ListBox x:Name="LstHistoriqueCommandes" Grid.Row="3" Grid.Column="1" />
+        <ListBox x:Name="LstHistoriqueCommandes" Grid.Row="3" Grid.Column="1" SelectionChanged="LstHistoriqueCommandes_SelectionChanged" />
 
         <Button x:Name="BtnRetourAccueil" Grid.Row="0" Grid.Column="0" Content="retour" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="80" Click="BtnRetourAccueil_Click"/>
 

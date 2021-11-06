@@ -25,6 +25,7 @@ namespace TP214E.Data
         {
             noCommande = pNoCommande;
             listeArticleCommande = new List<ArticleCommande>();
+            CalculerCoutCommande(listeArticleCommande);
         }
 
         public ObjectId Id
@@ -63,13 +64,27 @@ namespace TP214E.Data
         }
 
 
-        //TODO: trouver comment mettre deux décimales.
         public void CalculerCoutCommande(List<ArticleCommande> pListe)
         {
             foreach (ArticleCommande article in listeArticleCommande)
             {
-                coutTotalCommande += article.CoutArticle;
+                coutTotalCommande += article.CalculerVendantArticle();
             }
+        }
+
+        public decimal CalculerVendantCommande()
+        {
+            foreach (ArticleCommande article in listeArticleCommande)
+            {
+                coutTotalCommande += article.CalculerVendantArticle();
+            }
+
+            return coutTotalCommande;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} = {1:c}", NoCommande, CoutTotalCommande);
         }
 
     }

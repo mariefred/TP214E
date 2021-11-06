@@ -27,25 +27,44 @@
         <Label Grid.Row="1" Grid.Column="3" Content="COMMANDE" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
         <Label Grid.Row="2" Grid.Column="1" Content="Liste des plats" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
         <Label Grid.Row="2" Grid.Column="3" Content="Quantités - Items - Prix" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
+        <Label Grid.Row="5" Grid.Column="3" Content="Total de la commande :" Foreground="#FFF" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
+        <Label x:Name="LblTotalCommande" Grid.Row="5" Grid.Column="3" Content="$" Foreground="#FFF" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="12" FontWeight="Bold" Margin="0,0,10,0"/>
+        <Label x:Name="LblConfirmCommande" Grid.Row="0" Grid.Column="1" Content="COMMANDE CRÉÉE" Background="GreenYellow" Foreground="#CC5F8C5A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="24" FontWeight="Bold" Margin="0,0,10,0"/>
 
         <ListBox x:Name="LstPlats" Grid.Row="3" Grid.Column="1" />
         <ListBox x:Name="LstCommande" Grid.Row="3" Grid.Column="3" />
 
         <Button x:Name="BtnRetourAccueil" Grid.Row="0" Grid.Column="0" Content="retour" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="80" Click="BtnRetourAccueil_Click"/>
 
-        <StackPanel Grid.Row="5" Grid.Column="3" Orientation="Horizontal"  >
+        <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal"  >
             <Border Background="black">
                 <Button 
-                    x:Name="BtnCommander" Content="Commander" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="90" />
+                    x:Name="BtnCommander" Content="Commander" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="90" Click="BtnCommander_Click" />
             </Border>
             <Border Background="black">
-                <Button x:Name="BtnEffacer" Content="Effacer" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="76"/>
+                <Button x:Name="BtnEffacer" Content="Effacer" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="76" Click="BtnEffacer_Click"/>
             </Border>
             <Border Background="black">
                 <Button x:Name="BtnHistorique" Content="Historique" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="80" Click="BtnHistorique_Click"/>
             </Border>
         </StackPanel>
+        
+        <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Vertical"  >
+            <Border Background="black">
+                <Button 
+                    x:Name="BtnAjouter" Content="Ajouter" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="90" Click="BtnAjouter_Click" />
+            </Border>
+        </StackPanel>
 
+        <StackPanel Grid.Row="3" Grid.Column="4" Orientation="Vertical"  >
+            <Border Background="black">
+                <Button 
+                    x:Name="BtnAugmenter" Content="+" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="40" Click="BtnAugmenter_Click" />
+            </Border>
+            <Border Background="black">
+                <Button x:Name="BtnDiminuer" Content="-" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="40" Click="BtnDiminuer_Click"/>
+            </Border>
+        </StackPanel>
 
     </Grid>
 </Page>

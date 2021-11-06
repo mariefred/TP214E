@@ -20,10 +20,10 @@ namespace TP214E
     public partial class PageInventaire : Page
     {
         private List<Aliment> aliments;
-        public PageInventaire(DAL dal)
+        public PageInventaire(AccesDonnees dal)
         {
             InitializeComponent();
-            aliments = dal.ALiments();
+            aliments = dal.ObtenirCollectionAliments();
         }
     }
 }

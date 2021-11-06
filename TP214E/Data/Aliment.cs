@@ -13,22 +13,22 @@ namespace TP214E.Data
         [BsonId]
         private ObjectId id;
 
-        [BsonElement("nom")]
+       
         private string nom;
 
-        [BsonElement ("quantite")]
+        
         private double quantite;
 
-        [BsonElement ("uniteMesure")]
+        
         private UniteMesure uniteMesure;
 
-        [BsonElement ("coutAchat")]
+        
         private decimal coutAchat;
 
-        [BsonElement ("coutVente")]
+        
         private decimal coutVente;
 
-        [BsonConstructor]
+        
         public Aliment(string pNom, int pQuantite, UniteMesure pUniteMesure, decimal pCoutAliment)
         {
             nom = pNom;

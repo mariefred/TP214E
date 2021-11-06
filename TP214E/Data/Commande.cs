@@ -11,16 +11,16 @@ namespace TP214E.Data
         [BsonId]
         private ObjectId id;
 
-        [BsonElement ("noCommande")]
+        
         private string noCommande;
 
-        [BsonElement ("listeArticleCommande")]
+        
         private List<ArticleCommande> listeArticleCommande;
 
-        [BsonElement ("coutTotalCommande")]
+        
         private decimal coutTotalCommande;
 
-        [BsonConstructor]
+        
         public Commande(string pNoCommande)
         {
             noCommande = pNoCommande;

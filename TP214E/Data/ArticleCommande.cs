@@ -11,16 +11,16 @@ namespace TP214E.Data
         [BsonId]
         private ObjectId id;
 
-        [BsonElement ("quantiteArticle")]
+        
         private int quantiteArticle;
 
-        [BsonElement ("nomArticle")]
+        
         private Recette article;
 
-        [BsonElement ("coutArticle")]
+        
         private decimal coutArticle;
 
-        [BsonConstructor]
+        
         public ArticleCommande(int pQuantiteArticle, Recette pArticle)
         {
             quantiteArticle = pQuantiteArticle;

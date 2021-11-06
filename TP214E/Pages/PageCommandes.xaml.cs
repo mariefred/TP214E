@@ -37,11 +37,12 @@ namespace TP214E.Pages
 
         private void AjouterPlatsAEcran()
         {
-            foreach (Recette plat in PageAccueil._recettes)
+            foreach (Recette plat in PageAccueil.listeRecettes)
             {
                 LstPlats.Items.Add(plat);
             }
         }
+
 
     }
 }

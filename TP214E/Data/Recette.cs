@@ -18,26 +18,17 @@ namespace TP214E.Data
         [BsonElement ("listeIngredients")]
         private List<(double, Aliment)> listeIngredients;
 
-        //[BsonElement ("instructions")]
-        //private List<string> instructions;
-
-        //[BsonElement ("rendement")]
-        //private double rendement;
-
-        //[BsonElement ("coutant")]
-        //private decimal coutant;
-
         [BsonElement ("vendant")]
         private decimal vendant;
 
         [BsonConstructor]
         public Recette(string pNomrecette)
         {
-            this.nomRecette = pNomrecette;
-            this.ListeIngredients = new List<(double, Aliment)>();
+            NomRecette = pNomrecette;
+            ListeIngredients = new List<(double, Aliment)>();
         }
 
-        public string Nomrecette
+        public string NomRecette
         {
             get { return nomRecette; }
             set { nomRecette = value; }
@@ -49,41 +40,15 @@ namespace TP214E.Data
             set { listeIngredients = value; }
         }
 
-        //public List<string> Instructions
-        //{
-        //    get { return instructions; }
-        //    set { instructions = value; }
-        //}
-
-        //public double Rendement
-        //{
-        //    get { return rendement; }
-        //    set { rendement = value; }
-        //}
-
-        //public decimal Coutant
-        //{
-        //    get { return coutant; }
-        //    set { coutant = value; }
-        //}
-
         public decimal Vendant
         {
             get { return vendant; }
             set { vendant = value; }
         }
 
-        //public void CalculerCoutant()
-        //{
-        //    foreach ((double quantite, Aliment aliment) in listeIngredients)
-        //    {
-        //        coutant += aliment.CoutAchat;
-        //    }
-        //}
-
         public override string ToString()
         {
-            return String.Format("{0:c} - {1}", Vendant, Nomrecette);
+            return String.Format("{0:c} - {1}", Vendant, NomRecette);
         }
     }
 }

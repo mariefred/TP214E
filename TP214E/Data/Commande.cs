@@ -23,9 +23,9 @@ namespace TP214E.Data
         [BsonConstructor]
         public Commande(string pNoCommande)
         {
-            noCommande = pNoCommande;
-            listeArticleCommande = new List<ArticleCommande>();
-            CalculerCoutCommande(listeArticleCommande);
+            NoCommande = pNoCommande;
+            ListeArticleCommande = new List<ArticleCommande>();
+            
         }
 
         public ObjectId Id
@@ -52,25 +52,6 @@ namespace TP214E.Data
             set { coutTotalCommande = value; }
         }
 
-
-        public void AjouterArticleACommande(ArticleCommande pArticle)
-        {
-            listeArticleCommande.Add(pArticle);
-        }
-
-        public void RetirerArticleACommande(ArticleCommande pArticle)
-        {
-            listeArticleCommande.Remove(pArticle);
-        }
-
-
-        public void CalculerCoutCommande(List<ArticleCommande> pListe)
-        {
-            foreach (ArticleCommande article in listeArticleCommande)
-            {
-                coutTotalCommande += article.CalculerVendantArticle();
-            }
-        }
 
         public decimal CalculerVendantCommande()
         {

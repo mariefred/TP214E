@@ -22,7 +22,6 @@ namespace TP214E
     /// </summary>
     public partial class PageInventaire : Page
     {
-        //private List<Aliment> aliments;
         private bool estPourAjouter = false;
         private bool estPourModifier = false;
         private bool estPourSupprimer = false;
@@ -32,7 +31,6 @@ namespace TP214E
         {
             InitializeComponent();
             AjouterAlimentsAEcran();
-            //aliments = dal.ALiments();
         }
 
         private void AjouterAlimentsAEcran()
@@ -56,7 +54,7 @@ namespace TP214E
                 Aliment aliment = (Aliment)LstAliments.Items[index];
                 TxTNom.Text = aliment.Nom;
                 TxtQuantite.Text = aliment.Quantite.ToString();
-                TxtCoutVente.Text = aliment.CoutAchat.ToString();
+                TxtCoutVente.Text = aliment.CoutVente.ToString();
                 switch (aliment.UniteDeMesure)
                 {
                     case UniteMesure.gramme:
@@ -145,7 +143,7 @@ namespace TP214E
 
                 if (estPourModifier)
                 {
-                   
+                    // TODO : valider si on peut modifier un aliment.
                     AjouterAliment();
                     SupprimerAliment();
                 }

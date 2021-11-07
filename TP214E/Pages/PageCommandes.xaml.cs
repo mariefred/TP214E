@@ -27,7 +27,7 @@ namespace TP214E.Pages
         public PageCommandes()
         {
             InitializeComponent();
-            AjouterPlatsAEcran();
+            AfficherPlatsAEcran();
             InitialiserMinuteurConfirmationCommande();
             LblTotalCommande.Content = String.Format("{0:c}", 0);
         }
@@ -42,7 +42,7 @@ namespace TP214E.Pages
             this.NavigationService.Navigate(new Uri("Pages/PageAccueil.xaml", UriKind.Relative));
         }
 
-        private void AjouterPlatsAEcran()
+        private void AfficherPlatsAEcran()
         {
             foreach (Recette plat in PageAccueil._recettes)
             {

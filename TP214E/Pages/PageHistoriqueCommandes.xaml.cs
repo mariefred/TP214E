@@ -41,16 +41,28 @@ namespace TP214E.Pages
 
         private void LstHistoriqueCommandes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ViderInformationsCommandeAEcran();
             int index = LstHistoriqueCommandes.SelectedIndex;
             if (index != -1)
             {
                 LblNoCommande.Content = PageAccueil._commandes[index].NoCommande;
                 foreach (ArticleCommande article in PageAccueil._commandes[index].ListeArticleCommande)
                 {
-                    LblArticles.Content += article.Article.Nomrecette + "\n";
+                    LblArticles.Content += 
+                        String.Format("{0} - {1} - {2:c}",
+                        article.QuantiteArticle,
+                        article.Article.Nomrecette,
+                        article.Article.Vendant) + "\n";
                 }
-                LblTotal.Content = PageAccueil._commandes[index].CoutTotalCommande;
+                LblTotal.Content = String.Format("{0:c}", PageAccueil._commandes[index].CoutTotalCommande);
             }
+        }
+
+        private void ViderInformationsCommandeAEcran()
+        {
+            LblNoCommande.Content = "";
+            LblArticles.Content = "";
+            LblTotal.Content = "";
         }
     }
 }

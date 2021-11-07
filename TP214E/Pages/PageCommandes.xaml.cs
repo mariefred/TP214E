@@ -29,6 +29,7 @@ namespace TP214E.Pages
             InitializeComponent();
             AjouterPlatsAEcran();
             InitialiserMinuteurConfirmationCommande();
+            LblTotalCommande.Content = String.Format("{0:c}", 0);
         }
 
         private void BtnHistorique_Click(object sender, RoutedEventArgs e)
@@ -60,7 +61,7 @@ namespace TP214E.Pages
             int index = LstPlats.SelectedIndex;
             if (index != -1)
             {
-                // TODO : Ajouter validation pour ne pas mettre 2x le même plat
+                // TODO : Ajouter validation pour ne pas mettre 2x le même plat. Est-ce qu'on doit mettre le code comparaison ?
                 Recette recetteSelectionnee = (Recette)LstPlats.Items[index];
                 ArticleCommande article = new ArticleCommande(1, recetteSelectionnee);
                 LstCommande.Items.Add(article);
@@ -100,17 +101,21 @@ namespace TP214E.Pages
 
         private void BtnCommander_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : Trouver une manière de créer un no.Commande automatique unique-facile
-            string noCommande = PageAccueil._commandes.Count.ToString();
-            commande = new Commande("NO" + noCommande);
-            foreach (ArticleCommande article in LstCommande.Items)
+            if (LstCommande.Items.Count > 0)
             {
-                commande.ListeArticleCommande.Add(article);
-            }
+                // TODO : Trouver une manière de créer un no.Commande automatique unique-facile
+                string noCommande = PageAccueil._commandes.Count.ToString();
+                commande = new Commande("NO" + noCommande);
 
-            commande.CalculerVendantCommande();
-            PageAccueil._commandes.Add(commande);
-            ReinitialiserApresCommande();
+                foreach (ArticleCommande article in LstCommande.Items)
+                {
+                    commande.ListeArticleCommande.Add(article);
+                }
+
+                commande.CalculerVendantCommande();
+                PageAccueil._commandes.Add(commande);
+                ReinitialiserApresCommande();
+            }
         }
 
         private void CalculerTotalCommandeEnCours()
@@ -134,7 +139,6 @@ namespace TP214E.Pages
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            //MessageBox.Show("Commande créée");
             LblConfirmCommande.Visibility = System.Windows.Visibility.Collapsed;
             dispatcherTimer.IsEnabled = false;
         }

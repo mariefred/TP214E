@@ -10,13 +10,16 @@ namespace TP214E.Data
 {
     public class Recette
     {
-
+        [BsonId]
         private ObjectId id;
 
+        [BsonElement ("nomRecette")]
         private string nomRecette;
 
+        [BsonElement ("listeIngredients")]
         private List<(double, Aliment)> listeIngredients;
 
+        [BsonElement ("vendant")]
         private decimal vendant;
 
        [BsonConstructor]
@@ -54,5 +57,6 @@ namespace TP214E.Data
             return String.Format("{0:c} - {1}", Vendant, Nomrecette);
         }
 
+       
     }
 }

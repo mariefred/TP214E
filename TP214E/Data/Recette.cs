@@ -25,7 +25,6 @@ namespace TP214E.Data
        [BsonConstructor]
         public Recette()
         {
-            
         }
 
         public Recette(string pNomrecette)

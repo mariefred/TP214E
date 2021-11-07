@@ -147,7 +147,7 @@ namespace TP214E.Pages
 
         private void InitialiserMinuteurConfirmationCommande()
         {
-            LblConfirmCommande.Visibility = System.Windows.Visibility.Collapsed;
+            LblConfirmCommande.Visibility = Visibility.Collapsed;
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 2);
@@ -156,13 +156,13 @@ namespace TP214E.Pages
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             //MessageBox.Show("Commande créée");
-            LblConfirmCommande.Visibility = System.Windows.Visibility.Collapsed;
+            LblConfirmCommande.Visibility = Visibility.Collapsed;
             dispatcherTimer.IsEnabled = false;
         }
 
         private void ReinitialiserApresCommande()
         {
-            LblConfirmCommande.Visibility = System.Windows.Visibility.Visible;
+            LblConfirmCommande.Visibility = Visibility.Visible;
             dispatcherTimer.Start();
             LstCommande.Items.Clear();
             CalculerTotalCommandeEnCours();

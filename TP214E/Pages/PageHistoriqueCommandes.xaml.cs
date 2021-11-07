@@ -51,10 +51,10 @@ namespace TP214E.Pages
                     LblArticles.Content += 
                         String.Format("{0} - {1} - {2:c}",
                         article.QuantiteArticle,
-                        article.Article.Nomrecette,
+                        article.Article.NomRecette,
                         article.Article.Vendant) + "\n";
                 }
-                LblTotal.Content = PageAccueil.listeCommandes[index].CoutTotalCommande;
+                LblTotal.Content = string.Format("{0:c}",PageAccueil.listeCommandes[index].CoutTotalCommande);
             }
         }
 

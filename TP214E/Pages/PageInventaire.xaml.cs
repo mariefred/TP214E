@@ -28,7 +28,7 @@ namespace TP214E
         private bool estPourSupprimer = false;
 
 
-        public PageInventaire(DAL dal)
+        public PageInventaire(AccesDonnees dal)
         {
             InitializeComponent();
             aliments = dal.ObtenirCollectionAliments();
@@ -37,7 +37,7 @@ namespace TP214E
 
         private void AjouterAlimentsAEcran()
         {
-            foreach (Aliment aliment in PageAccueil._inventaire)
+            foreach (Aliment aliment in PageAccueil.listeAliments)
             {
                 LstAliments.Items.Add(aliment);
             }

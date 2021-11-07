@@ -20,7 +20,6 @@ namespace TP214E.Data
         public Commande()
         {
             listeArticleCommande = new List<ArticleCommande>();
-            CalculerCoutCommande(listeArticleCommande);
         }
 
 

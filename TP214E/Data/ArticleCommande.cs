@@ -18,9 +18,8 @@ namespace TP214E.Data
         
         public ArticleCommande(int pQuantiteArticle, Recette pArticle)
         {
-            quantiteArticle = pQuantiteArticle;
-            article = pArticle;
-            CalculerCoutArticle();
+            QuantiteArticle = pQuantiteArticle;
+            Article = pArticle;
         }
 
         public ObjectId Id
@@ -45,13 +44,6 @@ namespace TP214E.Data
         {
             get { return coutArticle; }
             set { coutArticle = value; }
-        }
-
-        public void CalculerCoutArticle()
-        {
-            //coutArticle = quantiteArticle * CoutArticle;
-            // TODO : C'est peut-être pas une méthode utile ici. On calcul un cout mais seulement 1 fois lorsque le constrcuteur est créer.
-            coutArticle = QuantiteArticle * Article.Vendant;
         }
 
         public decimal CalculerVendantArticle()

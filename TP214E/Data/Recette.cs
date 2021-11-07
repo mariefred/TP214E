@@ -29,11 +29,11 @@ namespace TP214E.Data
 
         public Recette(string pNomrecette)
         {
-            this.nomRecette = pNomrecette;
-            this.ListeIngredients = new List<(double, Aliment)>();
+            NomRecette = pNomrecette;
+            ListeIngredients = new List<(double, Aliment)>();
         }
 
-        public string Nomrecette
+        public string NomRecette
         {
             get { return nomRecette; }
             set { nomRecette = value; }
@@ -53,7 +53,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return String.Format("{0:c} - {1}", Vendant, Nomrecette);
+            return String.Format("{0:c} - {1}", Vendant, NomRecette);
         }
 
        

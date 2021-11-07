@@ -20,6 +20,7 @@ namespace TP214E.Pages
             InitializeComponent();
             AfficherPlatsAEcran();
             InitialiserMinuteurConfirmationCommande();
+            LblTotalCommande.Content = String.Format("{0:c}", 0);
         }
 
         private void BtnHistorique_Click(object sender, RoutedEventArgs e)
@@ -51,6 +52,7 @@ namespace TP214E.Pages
             int index = LstPlats.SelectedIndex;
             if (index != -1)
             {
+                // TODO : Ajouter validation pour ne pas mettre 2x le même plat. Est-ce qu'on doit mettre le code comparaison ?
                 Recette recetteSelectionnee = (Recette)LstPlats.Items[index];
                 if (ValiderPlatUnique(recetteSelectionnee))
                 {
@@ -117,10 +119,12 @@ namespace TP214E.Pages
         {
             commande = new Commande(ObtenirNoCommande());
             
-            foreach (ArticleCommande article in LstCommande.Items)
-            {
-                commande.ListeArticleCommande.Add(article);
-            }
+              
+
+                foreach (ArticleCommande article in LstCommande.Items)
+                {
+                    commande.ListeArticleCommande.Add(article);
+                }
 
             commande.CalculerVendantCommande();
             PageAccueil.listeCommandes.Add(commande);
@@ -155,7 +159,6 @@ namespace TP214E.Pages
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            //MessageBox.Show("Commande créée");
             LblConfirmCommande.Visibility = Visibility.Collapsed;
             dispatcherTimer.IsEnabled = false;
         }

@@ -10,9 +10,6 @@ namespace TP214E.Enumeration
        kilogramme,
        millilitre,
        litre,
-       unite,
-       cuillère_à_thé,
-       cuillère_à_soupe,
-       tasse
+       unite
     }
 }

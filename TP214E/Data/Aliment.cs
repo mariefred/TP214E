@@ -22,23 +22,16 @@ namespace TP214E.Data
         
         private UniteMesure uniteMesure;
 
-        
-        private decimal coutAchat;
-
-        
+        [BsonElement ("coutVente")]
         private decimal coutVente;
 
-        public Aliment()
+        [BsonConstructor]
+        public Aliment(string pNom, double pQuantite, UniteMesure pUniteMesure, decimal pcoutVente)
         {
-
-        }
-
-        public Aliment(string pNom, int pQuantite, UniteMesure pUniteMesure, decimal pCoutAliment)
-        {
-            nom = pNom;
-            quantite = pQuantite;   
-            uniteMesure = pUniteMesure;
-            coutAchat = pCoutAliment;
+            Nom = pNom;
+            Quantite = pQuantite;   
+            UniteDeMesure = pUniteMesure;
+            CoutVente = pcoutVente;
         }
 
         public ObjectId Id
@@ -65,26 +58,15 @@ namespace TP214E.Data
             set { uniteMesure = value; }
         }
 
-        public decimal CoutAchat
-        {
-            get { return coutAchat; }
-            set { coutAchat = value; }
-        }
-
         public decimal CoutVente
         {
             get { return coutVente; }
             set { coutVente = value; }
         }
 
-        public void AugmenterQuantite(double pQuantite)
+        public override string ToString()
         {
-            quantite +=  pQuantite;
-        }
-
-        public void DiminuerQuantite(double pQuantite)
-        {
-            quantite -= pQuantite;
+            return String.Format("{0} - {1:c} - {2}", Nom, CoutVente, uniteMesure);
         }
     }
 }

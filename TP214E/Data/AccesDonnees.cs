@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
 namespace TP214E.Data
@@ -72,7 +70,7 @@ namespace TP214E.Data
 
         public List<Commande> ObtenirCollectionCommandes()
         {
-            List<Commande> listeCommandes;
+            List<Commande> listeCommandes = new List<Commande>();
             try
             {
                 collectionCommande = baseDonnees.GetCollection<Commande>("Commandes");
@@ -81,7 +79,6 @@ namespace TP214E.Data
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                throw;
             }
 
             return listeCommandes;
@@ -102,6 +99,12 @@ namespace TP214E.Data
 
             return listeRecettes;
         }
+
+        public void CreerCommande(Commande pCommande)
+        {
+            collectionCommande.InsertOne(pCommande);
+        }
+
 
     }
 }

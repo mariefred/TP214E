@@ -33,7 +33,7 @@ namespace TP214E.Pages
 
         private void AjouterCommandesAEcran()
         {
-            foreach (Commande commande in PageAccueil._commandes)
+            foreach (Commande commande in PageAccueil.listeCommandes)
             {
                 LstHistoriqueCommandes.Items.Add(commande);
             }
@@ -44,12 +44,12 @@ namespace TP214E.Pages
             int index = LstHistoriqueCommandes.SelectedIndex;
             if (index != -1)
             {
-                LblNoCommande.Content = PageAccueil._commandes[index].NoCommande;
-                foreach (ArticleCommande article in PageAccueil._commandes[index].ListeArticleCommande)
+                LblNoCommande.Content = PageAccueil.listeCommandes[index].NoCommande;
+                foreach (ArticleCommande article in PageAccueil.listeCommandes[index].ListeArticleCommande)
                 {
                     LblArticles.Content += article.Article.Nomrecette + "\n";
                 }
-                LblTotal.Content = PageAccueil._commandes[index].CoutTotalCommande;
+                LblTotal.Content = PageAccueil.listeCommandes[index].CoutTotalCommande;
             }
         }
     }

@@ -28,7 +28,11 @@ namespace TP214E.Data
         
         private decimal coutVente;
 
-        
+        public Aliment()
+        {
+
+        }
+
         public Aliment(string pNom, int pQuantite, UniteMesure pUniteMesure, decimal pCoutAliment)
         {
             nom = pNom;

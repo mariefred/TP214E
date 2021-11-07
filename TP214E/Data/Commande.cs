@@ -11,17 +11,20 @@ namespace TP214E.Data
         [BsonId]
         private ObjectId id;
 
-        
-        private string noCommande;
+        private int noCommande;
 
-        
         private List<ArticleCommande> listeArticleCommande;
 
-        
         private decimal coutTotalCommande;
 
-        
-        public Commande(string pNoCommande)
+        public Commande()
+        {
+            listeArticleCommande = new List<ArticleCommande>();
+            CalculerCoutCommande(listeArticleCommande);
+        }
+
+
+        public Commande(int pNoCommande)
         {
             noCommande = pNoCommande;
             listeArticleCommande = new List<ArticleCommande>();
@@ -34,7 +37,7 @@ namespace TP214E.Data
             set { id = value; }
         }
 
-        public string NoCommande
+        public int NoCommande
         {
             get { return noCommande; }
             set { noCommande = value; }

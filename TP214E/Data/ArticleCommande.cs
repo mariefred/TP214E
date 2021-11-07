@@ -8,18 +8,13 @@ namespace TP214E.Data
 {
     public class ArticleCommande
     {
-        [BsonId]
         private ObjectId id;
 
-        
         private int quantiteArticle;
 
-        
         private Recette article;
 
-        
         private decimal coutArticle;
-
         
         public ArticleCommande(int pQuantiteArticle, Recette pArticle)
         {

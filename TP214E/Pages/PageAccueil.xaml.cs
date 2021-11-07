@@ -21,7 +21,7 @@ namespace TP214E
     /// </summary>
     public partial class PageAccueil : Page
     {
-        private AccesDonnees dal;
+        public static AccesDonnees dal;
         public static List<Recette> listeRecettes;
         public static List<Commande> listeCommandes;
         public static List<Aliment> listeAliments;

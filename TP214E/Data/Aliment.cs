@@ -29,7 +29,7 @@ namespace TP214E.Data
         private decimal coutVente;
 
         [BsonConstructor]
-        public Aliment(string pNom, int pQuantite, UniteMesure pUniteMesure, decimal pCoutAliment)
+        public Aliment(string pNom, double pQuantite, UniteMesure pUniteMesure, decimal pCoutAliment)
         {
             nom = pNom;
             quantite = pQuantite;   
@@ -81,6 +81,11 @@ namespace TP214E.Data
         public void DiminuerQuantite(double pQuantite)
         {
             quantite -= pQuantite;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} - {1:c} - {2}", Nom, CoutAchat, uniteMesure);
         }
     }
 }

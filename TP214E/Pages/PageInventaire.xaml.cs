@@ -22,20 +22,17 @@ namespace TP214E
     /// </summary>
     public partial class PageInventaire : Page
     {
-        private List<Aliment> aliments;
         private bool estPourAjouter = false;
         private bool estPourModifier = false;
         private bool estPourSupprimer = false;
 
-
         public PageInventaire(AccesDonnees dal)
         {
             InitializeComponent();
-            aliments = dal.ObtenirCollectionAliments();
-            AjouterAlimentsAEcran();
+            AfficherAlimentsAEcran();
         }
 
-        private void AjouterAlimentsAEcran()
+        private void AfficherAlimentsAEcran()
         {
             foreach (Aliment aliment in PageAccueil.listeAliments)
             {
@@ -163,33 +160,66 @@ namespace TP214E
 
         private void AjouterAliment()
         {
-            string nom = TxTNom.Text.Trim();
-            double quantite = double.Parse(TxtQuantite.Text.Trim());
-            decimal coutVente = decimal.Parse(TxtCoutVente.Text.Trim());
-            UniteMesure unite;
-            if (OptGramme.IsChecked.Value)
+            try
             {
-                unite = UniteMesure.gramme;
-            }
-            else if (OptKilogramme.IsChecked.Value)
-            {
-                unite = UniteMesure.kilogramme;
-            }
-            else if (OptMillilitre.IsChecked.Value)
-            {
-                unite = UniteMesure.millilitre;
-            }
-            else if (OptLitre.IsChecked.Value)
-            {
-                unite = UniteMesure.litre;
-            }
-            else
-            {
-                unite = UniteMesure.unite;
-            }
+                string nom = TxTNom.Text.Trim();
+                double quantite = double.Parse(TxtQuantite.Text.Trim());
+                decimal coutVente = decimal.Parse(TxtCoutVente.Text.Trim());
+                UniteMesure unite;
+                if (OptGramme.IsChecked.Value)
+                {
+                    unite = UniteMesure.gramme;
+                }
+                else if (OptKilogramme.IsChecked.Value)
+                {
+                    unite = UniteMesure.kilogramme;
+                }
+                else if (OptMillilitre.IsChecked.Value)
+                {
+                    unite = UniteMesure.millilitre;
+                }
+                else if (OptLitre.IsChecked.Value)
+                {
+                    unite = UniteMesure.litre;
+                }
+                else
+                {
+                    unite = UniteMesure.unite;
+                }
 
-            Aliment aliment = new Aliment(nom, quantite, unite, coutVente);
-            LstAliments.Items.Add(aliment);
+                Aliment aliment = new Aliment(nom, quantite, unite, coutVente);
+                LstAliments.Items.Add(aliment);
+            }
+            catch (ArgumentException msgException)
+            {
+                MessageBox.Show(msgException.Message,
+                    "Attention",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("La valeur entrée n'est pas valide.",
+                    "Attention",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("La valeur entrée n'a pu être traitée.",
+                    "Attention",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+        private void ModifierAliment()
+        {
+            int index = LstAliments.SelectedIndex;
+            if (index != -1)
+            {
+
+            }
         }
 
         private void SupprimerAliment()
@@ -201,7 +231,10 @@ namespace TP214E
             }
             else
             {
-                MessageBox.Show("Veuillez choisir un aliment");
+                MessageBox.Show("Veuillez choisir un aliment",
+                    "Attention",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             }
         }
 

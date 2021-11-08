@@ -11,23 +11,24 @@ namespace TP214E.Data
         [BsonId]
         private ObjectId id;
 
+        [BsonElement("noCommande")]
         private int noCommande;
 
+        [BsonElement("listeArticleCommande")]
         private List<ArticleCommande> listeArticleCommande;
 
+        [BsonElement("coutTotalCommande")]
         private decimal coutTotalCommande;
-
-        public Commande()
-        {
-            listeArticleCommande = new List<ArticleCommande>();
-        }
-
 
         public Commande(int pNoCommande)
         {
             NoCommande = pNoCommande;
             ListeArticleCommande = new List<ArticleCommande>();
-            
+        }
+
+        [BsonConstructor]
+        public Commande()
+        {
         }
 
         public ObjectId Id
@@ -51,18 +52,26 @@ namespace TP214E.Data
         public decimal CoutTotalCommande
         {
             get { return coutTotalCommande; }
-            set { coutTotalCommande = value; }
+            set
+            {
+                if (value >= 0)
+                {
+                    coutTotalCommande = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le coût de la commande ne doit pas être un nobre négatif.");
+                }
+            }
         }
-
 
         public decimal CalculerVendantCommande()
         {
-            foreach (ArticleCommande article in listeArticleCommande)
+            foreach (ArticleCommande article in ListeArticleCommande)
             {
-                coutTotalCommande += article.CalculerVendantArticle();
+                CoutTotalCommande += article.CalculerVendantArticle();
             }
-
-            return coutTotalCommande;
+            return CoutTotalCommande;
         }
 
         public override string ToString()

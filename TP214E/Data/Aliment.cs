@@ -13,25 +13,29 @@ namespace TP214E.Data
         [BsonId]
         private ObjectId id;
 
-       
+        [BsonElement("nom")]
         private string nom;
 
-        
+        [BsonElement("quantite")]
         private double quantite;
 
-        
+        [BsonElement("uniteMesure")]
         private UniteMesure uniteMesure;
 
         [BsonElement ("coutVente")]
         private decimal coutVente;
 
-        [BsonConstructor]
         public Aliment(string pNom, double pQuantite, UniteMesure pUniteMesure, decimal pcoutVente)
         {
             Nom = pNom;
             Quantite = pQuantite;   
             UniteDeMesure = pUniteMesure;
             CoutVente = pcoutVente;
+        }
+
+        [BsonConstructor]
+        public Aliment()
+        {
         }
 
         public ObjectId Id
@@ -43,13 +47,33 @@ namespace TP214E.Data
         public string Nom
         {
             get { return nom; }
-            set { nom = value; }
+            set
+            {
+                if (value != "")
+                {
+                    nom = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le nom ne doit pas être vide.");
+                }
+            }
         }
 
         public double Quantite
         {
             get { return quantite; }
-            set { quantite = value; }
+            set
+            {
+                if (value >= 0)
+                {
+                    quantite = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La quantité ne doit pas être un nombre négatif.");
+                }
+            }
         }
 
         public UniteMesure UniteDeMesure
@@ -61,7 +85,17 @@ namespace TP214E.Data
         public decimal CoutVente
         {
             get { return coutVente; }
-            set { coutVente = value; }
+            set
+            {
+                if (value >= 0)
+                {
+                    coutVente = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le cout ne doit pas être un nombre négatif.");
+                }
+            }
         }
 
         public override string ToString()

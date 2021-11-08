@@ -118,13 +118,11 @@ namespace TP214E.Pages
         private void BtnCommander_Click(object sender, RoutedEventArgs e)
         {
             commande = new Commande(ObtenirNoCommande());
-            
-              
 
-                foreach (ArticleCommande article in LstCommande.Items)
-                {
-                    commande.ListeArticleCommande.Add(article);
-                }
+            foreach (ArticleCommande article in LstCommande.Items)
+            {
+                commande.ListeArticleCommande.Add(article);
+            }
 
             commande.CalculerVendantCommande();
             PageAccueil.listeCommandes.Add(commande);
@@ -134,6 +132,7 @@ namespace TP214E.Pages
 
         private int ObtenirNoCommande()
         {
+            // TODO : Si on supprime des commandes, on risque d'avoir des commandes avec le même numéro ici. 
             int noCommande = 0;
             return noCommande = PageAccueil.listeCommandes.Count + 1000;
         }

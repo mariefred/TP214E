@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -118,13 +119,11 @@ namespace TP214E.Pages
         private void BtnCommander_Click(object sender, RoutedEventArgs e)
         {
             commande = new Commande(ObtenirNoCommande());
-            
-              
 
-                foreach (ArticleCommande article in LstCommande.Items)
-                {
-                    commande.ListeArticleCommande.Add(article);
-                }
+            foreach (ArticleCommande article in LstCommande.Items)
+            {
+                commande.ListeArticleCommande.Add(article);
+            }
 
             commande.CalculerVendantCommande();
             PageAccueil.listeCommandes.Add(commande);
@@ -134,8 +133,8 @@ namespace TP214E.Pages
 
         private int ObtenirNoCommande()
         {
-            int noCommande = 0;
-            return noCommande = PageAccueil.listeCommandes.Count + 1000;
+            int noCommande = PageAccueil.listeCommandes.Max(t => t.NoCommande);
+            return noCommande +1;
         }
 
         private void CalculerTotalCommandeEnCours()

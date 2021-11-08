@@ -8,7 +8,6 @@ namespace TP214E.Data
 {
     public class Commande
     {
-        [BsonId]
         private ObjectId id;
 
         private int noCommande;
@@ -27,7 +26,7 @@ namespace TP214E.Data
         {
             NoCommande = pNoCommande;
             ListeArticleCommande = new List<ArticleCommande>();
-            
+
         }
 
         public ObjectId Id

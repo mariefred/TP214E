@@ -22,16 +22,13 @@ namespace TP214E
     /// </summary>
     public partial class PageInventaire : Page
     {
-        private List<Aliment> aliments;
         private bool estPourAjouter = false;
         private bool estPourModifier = false;
         private bool estPourSupprimer = false;
 
-
         public PageInventaire(AccesDonnees dal)
         {
             InitializeComponent();
-            aliments = dal.ObtenirCollectionAliments();
             AjouterAlimentsAEcran();
         }
 
@@ -57,7 +54,7 @@ namespace TP214E
                 TxTNom.Text = aliment.Nom;
                 TxtQuantite.Text = aliment.Quantite.ToString();
                 TxtCoutVente.Text = aliment.CoutVente.ToString();
-                switch (aliment.UniteDeMesure)
+                switch (aliment.UniteMesure)
                 {
                     case UniteMesure.gramme:
                         OptGramme.IsChecked = true;

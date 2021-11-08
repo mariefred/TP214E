@@ -59,6 +59,8 @@ namespace TP214E.Data
             {
                 collectionAliment = baseDonnees.GetCollection<Aliment>("Aliments");
                 listeAliments = collectionAliment.Aggregate().ToList();
+                //listeAliments = baseDonnees.GetCollection<Aliment>("Aliments").Aggregate().ToList();
+
             }
             catch (Exception e)
             {
@@ -102,9 +104,12 @@ namespace TP214E.Data
 
         public void CreerCommande(Commande pCommande)
         {
+            
             collectionCommande.InsertOne(pCommande);
         }
 
+       
+        
 
     }
 }

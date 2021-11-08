@@ -10,27 +10,25 @@ namespace TP214E.Data
 {
     public class Aliment
     {
-        [BsonId]
         private ObjectId id;
 
-       
         private string nom;
 
-        
         private double quantite;
 
-        
         private UniteMesure uniteMesure;
 
-        [BsonElement ("coutVente")]
         private decimal coutVente;
 
-        [BsonConstructor]
+        public Aliment()
+        {
+        }
+
         public Aliment(string pNom, double pQuantite, UniteMesure pUniteMesure, decimal pcoutVente)
         {
             Nom = pNom;
-            Quantite = pQuantite;   
-            UniteDeMesure = pUniteMesure;
+            Quantite = pQuantite;
+            UniteMesure = pUniteMesure;
             CoutVente = pcoutVente;
         }
 
@@ -52,7 +50,7 @@ namespace TP214E.Data
             set { quantite = value; }
         }
 
-        public UniteMesure UniteDeMesure
+        public UniteMesure UniteMesure
         {
             get { return uniteMesure; }
             set { uniteMesure = value; }

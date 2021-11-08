@@ -24,8 +24,4 @@
     <Resource Include="Ressources\Images\victorLogo2.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Fonctions\" />
-  </ItemGroup>
-
 </Project>

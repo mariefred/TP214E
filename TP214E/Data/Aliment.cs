@@ -22,13 +22,13 @@ namespace TP214E.Data
         [BsonElement("uniteMesure")]
         private UniteMesure uniteMesure;
 
-        [BsonElement ("coutVente")]
+        [BsonElement("coutVente")]
         private decimal coutVente;
 
         public Aliment(string pNom, double pQuantite, UniteMesure pUniteMesure, decimal pcoutVente)
         {
             Nom = pNom;
-            Quantite = pQuantite;   
+            Quantite = pQuantite;
             UniteDeMesure = pUniteMesure;
             CoutVente = pcoutVente;
         }

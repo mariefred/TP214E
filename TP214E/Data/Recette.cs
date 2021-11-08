@@ -31,7 +31,8 @@ namespace TP214E.Data
        [BsonConstructor]
         public Recette()
        {
-       }
+           ListeIngredients = new List<(double, Aliment)>();
+        }
 
        public string NomRecette
         {

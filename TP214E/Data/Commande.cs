@@ -29,6 +29,7 @@ namespace TP214E.Data
         [BsonConstructor]
         public Commande()
         {
+            ListeArticleCommande = new List<ArticleCommande>();
         }
 
         public ObjectId Id

@@ -169,6 +169,5 @@ namespace TP214E.Pages
             LstCommande.Items.Clear();
             CalculerTotalCommandeEnCours();
         }
-
     }
 }

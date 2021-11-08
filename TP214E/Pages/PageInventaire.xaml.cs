@@ -156,6 +156,13 @@ namespace TP214E
                 estPourModifier = false;
                 estPourSupprimer = false;
             }
+            else
+            {
+                MessageBox.Show("Les champs ne doivent pas être vide.",
+                    "Attention",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
         }
 
         private void AjouterAliment()

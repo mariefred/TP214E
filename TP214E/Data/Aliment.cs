@@ -32,6 +32,11 @@ namespace TP214E.Data
             CoutVente = pcoutVente;
         }
 
+        [BsonConstructor]
+        public Aliment()
+        {
+        }
+
         public ObjectId Id
         {
             get { return id; }
@@ -41,13 +46,33 @@ namespace TP214E.Data
         public string Nom
         {
             get { return nom; }
-            set { nom = value; }
+            set
+            {
+                if (value != "")
+                {
+                    nom = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le nom ne doit pas être vide.");
+                }
+            }
         }
 
         public double Quantite
         {
             get { return quantite; }
-            set { quantite = value; }
+            set
+            {
+                if (value >= 0)
+                {
+                    quantite = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La quantité ne doit pas être un nombre négatif.");
+                }
+            }
         }
 
         public UniteMesure UniteMesure
@@ -59,7 +84,17 @@ namespace TP214E.Data
         public decimal CoutVente
         {
             get { return coutVente; }
-            set { coutVente = value; }
+            set
+            {
+                if (value >= 0)
+                {
+                    coutVente = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le cout ne doit pas être un nombre négatif.");
+                }
+            }
         }
 
         public override string ToString()

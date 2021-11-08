@@ -28,10 +28,26 @@ namespace TP214E.Data
             ListeIngredients = new List<(double, Aliment)>();
         }
 
-        public string NomRecette
+       [BsonConstructor]
+        public Recette()
+       {
+           ListeIngredients = new List<(double, Aliment)>();
+        }
+
+       public string NomRecette
         {
             get { return nomRecette; }
-            set { nomRecette = value; }
+            set
+            {
+                if (value != "")
+                {
+                    nomRecette = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le nom de la recette est vide.");
+                }
+            }
         }
 
         public List<(double, Aliment)> ListeIngredients
@@ -43,7 +59,17 @@ namespace TP214E.Data
         public decimal Vendant
         {
             get { return vendant; }
-            set { vendant = value; }
+            set
+            {
+                if (value >= 0)
+                {
+                    vendant = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le vendant de la recette ne doit pas être un nobre négatif.");
+                }
+            }
         }
 
         public override string ToString()

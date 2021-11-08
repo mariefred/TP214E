@@ -47,9 +47,5 @@ namespace TP214E
         {
             this.NavigationService.Navigate(new Uri("Pages/PageCommandes.xaml", UriKind.Relative), listeRecettes);
         }
-
-
-        
-
     }
 }

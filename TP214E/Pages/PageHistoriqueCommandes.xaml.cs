@@ -28,7 +28,6 @@ namespace TP214E.Pages
         private void BtnRetourAccueil_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("Pages/PageCommandes.xaml", UriKind.Relative));
-
         }
 
         private void AjouterCommandesAEcran()

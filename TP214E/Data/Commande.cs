@@ -8,16 +8,12 @@ namespace TP214E.Data
 {
     public class Commande
     {
-        [BsonId]
         private ObjectId id;
 
-        [BsonElement("noCommande")]
         private int noCommande;
 
-        [BsonElement("listeArticleCommande")]
         private List<ArticleCommande> listeArticleCommande;
 
-        [BsonElement("coutTotalCommande")]
         private decimal coutTotalCommande;
 
         public Commande(int pNoCommande)
@@ -26,7 +22,6 @@ namespace TP214E.Data
             ListeArticleCommande = new List<ArticleCommande>();
         }
 
-        [BsonConstructor]
         public Commande()
         {
             ListeArticleCommande = new List<ArticleCommande>();

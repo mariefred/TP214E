@@ -10,20 +10,19 @@ namespace TP214E.Data
 {
     public class Aliment
     {
-        [BsonId]
         private ObjectId id;
 
-        [BsonElement("nom")]
         private string nom;
 
-        [BsonElement("quantite")]
         private double quantite;
 
-        [BsonElement("uniteMesure")]
         private UniteMesure uniteMesure;
 
-        [BsonElement("coutVente")]
         private decimal coutVente;
+
+        public Aliment()
+        {
+        }
 
         public Aliment(string pNom, double pQuantite, UniteMesure pUniteMesure, decimal pcoutVente)
         {
@@ -31,11 +30,6 @@ namespace TP214E.Data
             Quantite = pQuantite;
             UniteDeMesure = pUniteMesure;
             CoutVente = pcoutVente;
-        }
-
-        [BsonConstructor]
-        public Aliment()
-        {
         }
 
         public ObjectId Id
@@ -100,7 +94,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return String.Format("{0} - {1:c} - {2}", Nom, CoutVente, uniteMesure);
+            return String.Format("{0} - {1:c} - {2}", Nom, CoutVente, UniteDeMesure);
         }
     }
 }

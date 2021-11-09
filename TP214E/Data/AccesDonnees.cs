@@ -105,6 +105,10 @@ namespace TP214E.Data
             collectionCommande.InsertOne(pCommande);
         }
 
+        public void CreerAliment(Aliment pAliment)
+        {
+            collectionAliment.InsertOne(pAliment);
+        }
 
     }
 }

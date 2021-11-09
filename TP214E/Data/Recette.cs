@@ -10,31 +10,27 @@ namespace TP214E.Data
 {
     public class Recette
     {
-        [BsonId]
         private ObjectId id;
 
-        [BsonElement ("nomRecette")]
         private string nomRecette;
 
-        [BsonElement ("listeIngredients")]
         private List<(double, Aliment)> listeIngredients;
 
-        [BsonElement ("vendant")]
         private decimal vendant;
 
-       public Recette(string pNomrecette)
+        public Recette()
+        {
+            ListeIngredients = new List<(double, Aliment)>();
+        }
+
+        public Recette(string pNomrecette)
         {
             NomRecette = pNomrecette;
             ListeIngredients = new List<(double, Aliment)>();
         }
 
-       [BsonConstructor]
-        public Recette()
-       {
-           ListeIngredients = new List<(double, Aliment)>();
-        }
 
-       public string NomRecette
+        public string NomRecette
         {
             get { return nomRecette; }
             set

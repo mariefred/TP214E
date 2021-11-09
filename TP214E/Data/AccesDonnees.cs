@@ -111,9 +111,25 @@ namespace TP214E.Data
             collectionAliment.InsertOne(pAliment);
         }
 
-        //public void SupprimerAliment(Aliment pAliment)
-        //{
-        //    collectionAliment.DeleteOne(  pAliment.Id  );
-        //}
+        public void SupprimerAliment(Aliment pAliment)
+        {
+            var alimentRecherche = Builders<Aliment>.Filter.Eq(aliment => aliment.Id, pAliment.Id);
+            collectionAliment.DeleteOne(alimentRecherche);
+        }
+
+        public void MettreAJourAliment(Aliment pAliment)
+        {
+            var alimentRecherche = Builders<Aliment>.Filter.Eq(aliment => aliment.Id, pAliment.Id);
+            var miseAJour = Builders<Aliment>.Update
+                .Set("Nom", pAliment.Nom)
+                .Set("Quantite", pAliment.Quantite)
+                .Set("CoutVente", pAliment.CoutVente)
+                .Set("UniteMesure", pAliment.UniteMesure);
+            var documentAJour = collectionAliment.UpdateOne(alimentRecherche, miseAJour);
+        }
+
+        public void RechercherUnAliment(Aliment pAliment)
+        {
+        }
     }
 }

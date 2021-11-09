@@ -131,7 +131,7 @@ namespace TP214E
 
         private void BtnEnregistrer_Click(object sender, RoutedEventArgs e)
         {
-            if (TxTNom.Text != "" && TxtCoutVente.Text != "" && TxtQuantite.Text != "" 
+            if (TxTNom.Text != "" && TxtCoutVente.Text != "" && TxtQuantite.Text != ""
                 && OptGramme.IsChecked.Value || OptKilogramme.IsChecked.Value ||
                 OptMillilitre.IsChecked.Value || OptLitre.IsChecked.Value || OptUnite.IsChecked.Value)
             {
@@ -167,37 +167,40 @@ namespace TP214E
 
         private void AjouterAliment()
         {
+            Aliment aliment = new Aliment();
+            aliment = DefinirValeursAliment(aliment);
+            LstAliments.Items.Add(aliment);
+            PageAccueil.listeAliments.Add(aliment);
+            PageAccueil.dal.CreerAliment(aliment);
+        }
+
+        private Aliment DefinirValeursAliment(Aliment pAliment)
+        {
             try
             {
-                string nom = TxTNom.Text.Trim();
-                double quantite = double.Parse(TxtQuantite.Text.Trim());
-                decimal coutVente = decimal.Parse(TxtCoutVente.Text.Trim());
-                UniteMesure unite;
+                pAliment.Nom = TxTNom.Text.Trim();
+                pAliment.Quantite = double.Parse(TxtQuantite.Text.Trim());
+                pAliment.CoutVente = decimal.Parse(TxtCoutVente.Text.Trim());
                 if (OptGramme.IsChecked.Value)
                 {
-                    unite = UniteMesure.gramme;
+                    pAliment.UniteMesure = UniteMesure.gramme;
                 }
                 else if (OptKilogramme.IsChecked.Value)
                 {
-                    unite = UniteMesure.kilogramme;
+                    pAliment.UniteMesure = UniteMesure.kilogramme;
                 }
                 else if (OptMillilitre.IsChecked.Value)
                 {
-                    unite = UniteMesure.millilitre;
+                    pAliment.UniteMesure = UniteMesure.millilitre;
                 }
                 else if (OptLitre.IsChecked.Value)
                 {
-                    unite = UniteMesure.litre;
+                    pAliment.UniteMesure = UniteMesure.litre;
                 }
                 else
                 {
-                    unite = UniteMesure.unite;
+                    pAliment.UniteMesure = UniteMesure.unite;
                 }
-
-                Aliment aliment = new Aliment(nom, quantite, unite, coutVente);
-                LstAliments.Items.Add(aliment);
-                PageAccueil.listeAliments.Add(aliment);
-                PageAccueil.dal.CreerAliment(aliment);
 
             }
             catch (ArgumentException msgException)
@@ -221,6 +224,7 @@ namespace TP214E
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
+            return pAliment;
         }
 
         private void ModifierAliment()
@@ -228,16 +232,25 @@ namespace TP214E
             int index = LstAliments.SelectedIndex;
             if (index != -1)
             {
+                Aliment aliment = new Aliment();
+                aliment = DefinirValeursAliment(aliment);
+                PageAccueil.dal.MettreAJourAliment(aliment);
+
 
             }
+
+
         }
 
         private void SupprimerAliment()
         {
+            Aliment aliment = new Aliment();
             int index = LstAliments.SelectedIndex;
             if (index != -1)
             {
+                aliment = (Aliment)LstAliments.SelectedItem;
                 LstAliments.Items.RemoveAt(index);
+                PageAccueil.dal.SupprimerAliment(aliment);
             }
             else
             {

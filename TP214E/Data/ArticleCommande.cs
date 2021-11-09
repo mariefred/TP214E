@@ -8,16 +8,12 @@ namespace TP214E.Data
 {
     public class ArticleCommande
     {
-        [BsonId]
         private ObjectId id;
 
-        [BsonElement("quantiteArticle")]
         private int quantiteArticle;
 
-        [BsonElement("article")]
         private Recette article;
 
-        [BsonElement("coutArticle")]
         private decimal coutArticle;
 
         public ArticleCommande()
@@ -27,11 +23,6 @@ namespace TP214E.Data
         {
             QuantiteArticle = pQuantiteArticle;
             Article = pArticle;
-        }
-
-        [BsonConstructor]
-        public ArticleCommande()
-        {
         }
 
         public ObjectId Id

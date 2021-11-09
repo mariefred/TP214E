@@ -28,12 +28,6 @@ namespace TP214E.Data
             ListeIngredients = new List<(double, Aliment)>();
         }
 
-       [BsonConstructor]
-        public Recette()
-       {
-           ListeIngredients = new List<(double, Aliment)>();
-        }
-
        public string NomRecette
         {
             get { return nomRecette; }
@@ -48,6 +42,12 @@ namespace TP214E.Data
                     throw new ArgumentException("Le nom de la recette est vide.");
                 }
             }
+        }
+
+        public ObjectId Id
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         public List<(double, Aliment)> ListeIngredients

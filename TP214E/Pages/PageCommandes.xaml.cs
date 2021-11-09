@@ -53,8 +53,8 @@ namespace TP214E.Pages
             int index = LstPlats.SelectedIndex;
             if (index != -1)
             {
-                // TODO : Ajouter validation pour ne pas mettre 2x le même plat. Est-ce qu'on doit mettre le code comparaison ?
                 Recette recetteSelectionnee = (Recette)LstPlats.Items[index];
+                
                 if (ValiderPlatUnique(recetteSelectionnee))
                 {
                     AjouterPlatACommande(recetteSelectionnee);
@@ -133,8 +133,17 @@ namespace TP214E.Pages
 
         private int ObtenirNoCommande()
         {
-            int noCommande = PageAccueil.listeCommandes.Max(t => t.NoCommande);
-            return noCommande +1;
+            int noCommande;
+            
+            if (PageAccueil.listeCommandes.Count == 0)
+            {
+                noCommande = 1000;
+            } else
+            {
+                noCommande = PageAccueil.listeCommandes.Max(t => t.NoCommande+1);
+            }
+            
+            return noCommande;
         }
 
         private void CalculerTotalCommandeEnCours()

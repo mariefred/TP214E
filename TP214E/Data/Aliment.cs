@@ -32,11 +32,6 @@ namespace TP214E.Data
             CoutVente = pcoutVente;
         }
 
-        [BsonConstructor]
-        public Aliment()
-        {
-        }
-
         public ObjectId Id
         {
             get { return id; }

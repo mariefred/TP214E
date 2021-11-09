@@ -196,6 +196,9 @@ namespace TP214E
 
                 Aliment aliment = new Aliment(nom, quantite, unite, coutVente);
                 LstAliments.Items.Add(aliment);
+                PageAccueil.listeAliments.Add(aliment);
+                PageAccueil.dal.CreerAliment(aliment);
+
             }
             catch (ArgumentException msgException)
             {

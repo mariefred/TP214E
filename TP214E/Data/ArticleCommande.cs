@@ -1,8 +1,5 @@
 ﻿using MongoDB.Bson;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace TP214E.Data
 {
@@ -18,10 +15,6 @@ namespace TP214E.Data
 
         public ArticleCommande()
         { }
-
-        public ArticleCommande(int pQuantiteArticle, Recette pArticle)
-        {
-        }
 
         public ArticleCommande(int pQuantiteArticle, Recette pArticle)
         {

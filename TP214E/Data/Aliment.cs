@@ -1,8 +1,5 @@
 ﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using TP214E.Enumeration;
 
 
@@ -94,7 +91,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return String.Format("{0} - {1:c} - {2}", Nom, CoutVente, UniteDeMesure);
+            return String.Format("{0} - {1:c} - {2} {3}", Nom, CoutVente, Quantite, UniteMesure);
         }
     }
 }

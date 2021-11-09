@@ -52,17 +52,17 @@
         <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Vertical"  >
             <Border Background="black">
                 <Button 
-                    x:Name="BtnAjouter" Content="Ajouter" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="90" Click="BtnAjouter_Click" />
+                    x:Name="BtnAjouter" Content="Ajouter" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="90" Click="BtnAjouterPlat_Click" />
             </Border>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="4" Orientation="Vertical"  >
             <Border Background="black">
                 <Button 
-                    x:Name="BtnAugmenter" Content="+" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="40" Click="BtnAugmenter_Click" />
+                    x:Name="BtnAugmenterQte" Content="+" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="40" Click="BtnAugmenterQte_Click" />
             </Border>
             <Border Background="black">
-                <Button x:Name="BtnDiminuer" Content="-" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="40" Click="BtnDiminuer_Click"/>
+                <Button x:Name="BtnDiminuerQte" Content="-" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="12" Height="40" Width="40" Click="BtnDiminuerQte_Click"/>
             </Border>
         </StackPanel>
 

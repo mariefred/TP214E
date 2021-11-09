@@ -3,36 +3,22 @@
   <Class Name="TP214E.Data.Aliment" Collapsed="true">
     <Position X="5.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAAIAAAIAQAAAoAAAAAgAAAAgA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAEAAAAIAAAICAQACgAEAAIAAAAAgA=</HashCode>
       <FileName>Data\Aliment.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TP214E.Data.ArticleCommande" Collapsed="true">
     <Position X="9.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAIAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAgAhA=</HashCode>
+      <HashCode>ACACEAAAAAAAAAAEAAAAIAAAEAAAABAAAAAAAAAgAhA=</HashCode>
       <FileName>Data\ArticleCommande.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TP214E.Data.Commande" Collapsed="true">
     <Position X="7.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAABAABAAABAgA=</HashCode>
+      <HashCode>AAADAAAgAAAAIAAEAAAIAAAECAAAAAABAAABAAABAgA=</HashCode>
       <FileName>Data\Commande.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TP214E.Data.DAL" Collapsed="true">
-    <Position X="9" Y="4" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIA=</HashCode>
-      <FileName>Data\DAL.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TP214E.Data.Inventaire" Collapsed="true">
-    <Position X="4.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Data\Inventaire.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

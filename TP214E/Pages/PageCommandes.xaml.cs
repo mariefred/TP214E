@@ -48,7 +48,7 @@ namespace TP214E.Pages
             CalculerTotalCommandeEnCours();
         }
 
-        private void BtnAjouter_Click(object sender, RoutedEventArgs e)
+        private void BtnAjouterPlat_Click(object sender, RoutedEventArgs e)
         {
             int index = LstPlats.SelectedIndex;
             if (index != -1)
@@ -86,7 +86,7 @@ namespace TP214E.Pages
             CalculerTotalCommandeEnCours();
         }
 
-        private void BtnAugmenter_Click(object sender, RoutedEventArgs e)
+        private void BtnAugmenterQte_Click(object sender, RoutedEventArgs e)
         {
             int index = LstCommande.SelectedIndex;
             if (index != -1)
@@ -97,7 +97,7 @@ namespace TP214E.Pages
             }
         }
 
-        private void BtnDiminuer_Click(object sender, RoutedEventArgs e)
+        private void BtnDiminuerQte_Click(object sender, RoutedEventArgs e)
         {
             int index = LstCommande.SelectedIndex;
             if (index != -1)
@@ -119,7 +119,9 @@ namespace TP214E.Pages
         private void BtnCommander_Click(object sender, RoutedEventArgs e)
         {
             commande = new Commande(ObtenirNoCommande());
-
+            commande.DateCommande = DateTime.Now;
+            
+            //TODO Faire validation si commande vide
             foreach (ArticleCommande article in LstCommande.Items)
             {
                 commande.ListeArticleCommande.Add(article);
@@ -129,6 +131,8 @@ namespace TP214E.Pages
             PageAccueil.listeCommandes.Add(commande);
             PageAccueil.dal.CreerCommande(commande);
             ReinitialiserApresCommande();
+            
+            //TODO: faire fenêtre qui affiche le total de la commande ou laisser à l'écran la commande. Dans une situation normale le caissier 
         }
 
         private int ObtenirNoCommande()
@@ -142,7 +146,6 @@ namespace TP214E.Pages
             {
                 noCommande = PageAccueil.listeCommandes.Max(t => t.NoCommande+1);
             }
-            
             return noCommande;
         }
 
@@ -153,7 +156,6 @@ namespace TP214E.Pages
             {
                 total += article.CalculerVendantArticle();
             }
-
             LblTotalCommande.Content = String.Format("{0:c}", total);
         }
 

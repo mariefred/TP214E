@@ -101,6 +101,7 @@ namespace TP214E.Data
             return listeRecettes;
         }
 
+        //Faire gestion erreurs?
         public void CreerCommande(Commande pCommande)
         {
             collectionCommande.InsertOne(pCommande);
@@ -126,10 +127,6 @@ namespace TP214E.Data
                 .Set("CoutVente", pAliment.CoutVente)
                 .Set("UniteMesure", pAliment.UniteMesure);
             var documentAJour = collectionAliment.UpdateOne(alimentRecherche, miseAJour);
-        }
-
-        public void RechercherUnAliment(Aliment pAliment)
-        {
         }
     }
 }

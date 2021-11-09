@@ -1,8 +1,6 @@
 ﻿using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace TP214E.Data
 {
@@ -15,6 +13,8 @@ namespace TP214E.Data
         private List<ArticleCommande> listeArticleCommande;
 
         private decimal coutTotalCommande;
+
+        private DateTime dateCommande;
 
         public Commande(int pNoCommande)
         {
@@ -61,6 +61,12 @@ namespace TP214E.Data
             }
         }
 
+        public DateTime DateCommande
+        {
+            get { return dateCommande; }
+            set { dateCommande = value; }
+        }
+
         public decimal CalculerVendantCommande()
         {
             foreach (ArticleCommande article in ListeArticleCommande)
@@ -72,7 +78,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return String.Format("{0} = {1:c}", NoCommande, CoutTotalCommande);
+            return String.Format("{0} - {1} = {2:c}", DateCommande, NoCommande, CoutTotalCommande);
         }
 
     }

@@ -30,6 +30,7 @@ namespace TP214E
         {
             InitializeComponent();
             AfficherAlimentsAEcran();
+            BloquerChampsFormulaire();
         }
 
         private void AfficherAlimentsAEcran()
@@ -38,6 +39,30 @@ namespace TP214E
             {
                 LstAliments.Items.Add(aliment);
             }
+        }
+
+        private void BloquerChampsFormulaire()
+        {
+            TxTNom.IsEnabled = false;
+            TxtQuantite.IsEnabled = false;
+            TxtCoutVente.IsEnabled = false;
+            OptGramme.IsEnabled = false;
+            OptKilogramme.IsEnabled = false;
+            OptMillilitre.IsEnabled = false;
+            OptLitre.IsEnabled = false;
+            OptUnite.IsEnabled = false;
+        }
+
+        private void DebloquerChampsFormulaire()
+        {
+            TxTNom.IsEnabled = true;
+            TxtQuantite.IsEnabled = true;
+            TxtCoutVente.IsEnabled = true;
+            OptGramme.IsEnabled = true;
+            OptKilogramme.IsEnabled = true;
+            OptMillilitre.IsEnabled = true;
+            OptLitre.IsEnabled = true;
+            OptUnite.IsEnabled = true;
         }
 
         private void BtnRetourAccueil_Click(object sender, RoutedEventArgs e)
@@ -92,6 +117,7 @@ namespace TP214E
         private void BtnAjouter_Click(object sender, RoutedEventArgs e)
         {
             ViderInformationsAlimentAEcran();
+            DebloquerChampsFormulaire();
             LblTitreActionChoisiPourAliment.Content = "AJOUTER UN ALIMENT";
             LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.GreenYellow);
             estPourAjouter = true;
@@ -102,6 +128,7 @@ namespace TP214E
         private void BtnModifier_Click(object sender, RoutedEventArgs e)
         {
             ViderInformationsAlimentAEcran();
+            DebloquerChampsFormulaire();
             LblTitreActionChoisiPourAliment.Content = "MODIFIER UN ALIMENT";
             LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.GreenYellow);
             estPourAjouter = false;
@@ -112,6 +139,7 @@ namespace TP214E
         private void BtnSupprimer_Click(object sender, RoutedEventArgs e)
         {
             ViderInformationsAlimentAEcran();
+            BloquerChampsFormulaire();
             LblTitreActionChoisiPourAliment.Content = "SUPPRIMER UN ALIMENT";
             LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.GreenYellow);
             estPourAjouter = false;
@@ -121,6 +149,7 @@ namespace TP214E
         private void BtnAnnuler_Click(object sender, RoutedEventArgs e)
         {
             ViderInformationsAlimentAEcran();
+            BloquerChampsFormulaire();
             LblTitreActionChoisiPourAliment.Content = "";
             LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.Black);
             LstAliments.SelectedIndex = -1;
@@ -137,24 +166,27 @@ namespace TP214E
             {
                 if (estPourAjouter)
                 {
-                    AjouterAliment();
+                    AjouterOuModifierAliment();
+                    LstAliments.IsEnabled = false;
                 }
 
                 if (estPourModifier)
                 {
-                    // TODO : valider si on peut modifier un aliment.
-                    AjouterAliment();
-                    SupprimerAliment();
+                    AjouterOuModifierAliment();
                 }
 
                 if (estPourSupprimer)
                 {
                     SupprimerAliment();
                 }
+
                 ViderInformationsAlimentAEcran();
+                BloquerChampsFormulaire();
                 estPourAjouter = false;
                 estPourModifier = false;
                 estPourSupprimer = false;
+                LstAliments.IsEnabled = true;
+                LstAliments.SelectedIndex = -1;
             }
             else
             {
@@ -165,7 +197,7 @@ namespace TP214E
             }
         }
 
-        private void AjouterAliment()
+        private void AjouterOuModifierAliment()
         {
             Aliment aliment = new Aliment();
             aliment = DefinirValeursAliment(aliment);
@@ -202,6 +234,21 @@ namespace TP214E
                     pAliment.UniteMesure = UniteMesure.unite;
                 }
 
+                int index = LstAliments.SelectedIndex;
+                if (index != -1)
+                {
+                    ((Aliment)LstAliments.Items[index]).Nom = nom;
+                    ((Aliment)LstAliments.Items[index]).Quantite = quantite;
+                    ((Aliment)LstAliments.Items[index]).CoutVente = coutVente;
+                    ((Aliment)LstAliments.Items[index]).UniteDeMesure = unite;
+                    LstAliments.Items.Refresh();
+                }
+                else
+                {
+                    Aliment aliment = new Aliment(nom, quantite, unite, coutVente);
+                    LstAliments.Items.Add(aliment);
+                    PageAccueil.dal.CreerAliment(aliment);
+                }
             }
             catch (ArgumentException msgException)
             {

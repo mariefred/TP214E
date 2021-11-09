@@ -21,6 +21,10 @@ namespace TP214E.Data
 
         public ArticleCommande(int pQuantiteArticle, Recette pArticle)
         {
+        }
+
+        public ArticleCommande(int pQuantiteArticle, Recette pArticle)
+        {
             QuantiteArticle = pQuantiteArticle;
             Article = pArticle;
         }

@@ -28,7 +28,8 @@ namespace TP214E.Data
             ListeIngredients = new List<(double, Aliment)>();
         }
 
-       public string NomRecette
+
+        public string NomRecette
         {
             get { return nomRecette; }
             set

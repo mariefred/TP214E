@@ -94,7 +94,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return String.Format("{0} - {1:c} - {2}", Nom, CoutVente, uniteMesure);
+            return String.Format("{0} - {1:c} - {2}", Nom, CoutVente, UniteDeMesure);
         }
     }
 }

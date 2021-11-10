@@ -5,7 +5,7 @@ using TP214E.Enumeration;
 
 namespace TP214E.Data
 {
-    public class Aliment
+    public class Aliment : IAliment
     {
         private ObjectId id;
 

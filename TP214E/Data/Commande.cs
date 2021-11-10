@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TP214E.Data
 {
-    public class Commande
+    public class Commande : ICommande
     {
         private ObjectId id;
 

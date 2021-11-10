@@ -3,7 +3,7 @@ using System;
 
 namespace TP214E.Data
 {
-    public class ArticleCommande
+    public class ArticleCommande : IArticleCommande
     {
         private ObjectId id;
 

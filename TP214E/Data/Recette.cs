@@ -4,7 +4,7 @@ using MongoDB.Bson;
 
 namespace TP214E.Data
 {
-    public class Recette
+    public class Recette : IRecette
     {
         private ObjectId id;
 

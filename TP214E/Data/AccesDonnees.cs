@@ -5,7 +5,7 @@ using MongoDB.Driver;
 
 namespace TP214E.Data
 {
-    public class AccesDonnees
+    public class AccesDonnees : IAccesDonnees
     {
         public MongoClient mongoDBClient;
         public IMongoDatabase baseDonnees;
@@ -19,7 +19,7 @@ namespace TP214E.Data
             baseDonnees = ConnecterBaseDonnees();
         }
 
-        private MongoClient OuvrirConnexion()
+        public MongoClient OuvrirConnexion()
         {
             MongoClient dbClient = null;
             try
@@ -35,7 +35,7 @@ namespace TP214E.Data
             return dbClient;
         }
 
-        private IMongoDatabase ConnecterBaseDonnees()
+        public IMongoDatabase ConnecterBaseDonnees()
         {
             IMongoDatabase bdCourante = null;
 

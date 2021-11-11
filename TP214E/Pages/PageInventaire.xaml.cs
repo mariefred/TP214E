@@ -34,14 +34,14 @@ namespace TP214E
         //Suggestion pour Sarah: faire une sule fonction avec paramètre bool.
         private void ActiverChampsFormulaire(bool pActiver)
         {
-            TxTNom.IsEnabled = false;
-            TxtQuantite.IsEnabled = false;
-            TxtCoutVente.IsEnabled = false;
-            OptGramme.IsEnabled = false;
-            OptKilogramme.IsEnabled = false;
-            OptMillilitre.IsEnabled = false;
-            OptLitre.IsEnabled = false;
-            OptUnite.IsEnabled = false;
+            TxTNom.IsEnabled = pActiver;
+            TxtQuantite.IsEnabled = pActiver;
+            TxtCoutVente.IsEnabled = pActiver;
+            OptGramme.IsEnabled = pActiver;
+            OptKilogramme.IsEnabled = pActiver;
+            OptMillilitre.IsEnabled = pActiver;
+            OptLitre.IsEnabled = pActiver;
+            OptUnite.IsEnabled = pActiver;
         }
 
         private void BtnRetourAccueil_Click(object sender, RoutedEventArgs e)
@@ -95,10 +95,7 @@ namespace TP214E
 
         private void BtnAjouter_Click(object sender, RoutedEventArgs e)
         {
-            ViderInformationsAlimentAEcran();
-            ActiverChampsFormulaire(true);
-            LblTitreActionChoisiPourAliment.Content = "AJOUTER UN ALIMENT";
-            LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.GreenYellow);
+            AcualiserAffichageSelonActionChoisi("AJOUTER UN ALIMENT");
             estPourAjouter = true;
             estPourModifier = false;
             estPourSupprimer = false;
@@ -106,25 +103,29 @@ namespace TP214E
 
         private void BtnModifier_Click(object sender, RoutedEventArgs e)
         {
-            ViderInformationsAlimentAEcran();
-            ActiverChampsFormulaire(true);
-            LblTitreActionChoisiPourAliment.Content = "MODIFIER UN ALIMENT";
-            LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.GreenYellow);
+            AcualiserAffichageSelonActionChoisi("MODIFIER UN ALIMENT");
             estPourAjouter = false;
             estPourModifier = true;
             estPourSupprimer = false;
         }
 
+
         private void BtnSupprimer_Click(object sender, RoutedEventArgs e)
         {
-            ViderInformationsAlimentAEcran();
-            ActiverChampsFormulaire(false);
-            LblTitreActionChoisiPourAliment.Content = "SUPPRIMER UN ALIMENT";
-            LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.GreenYellow);
+            AcualiserAffichageSelonActionChoisi("SUPPRIMER UN ALIMENT");
             estPourAjouter = false;
             estPourModifier = false;
             estPourSupprimer = true;
         }
+
+        private void AcualiserAffichageSelonActionChoisi(string pTitreActionChoisi)
+        {
+            ViderInformationsAlimentAEcran();
+            ActiverChampsFormulaire(true);
+            LblTitreActionChoisiPourAliment.Content = pTitreActionChoisi;
+            LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.GreenYellow);
+        }
+
         private void BtnAnnuler_Click(object sender, RoutedEventArgs e)
         {
             ViderInformationsAlimentAEcran();

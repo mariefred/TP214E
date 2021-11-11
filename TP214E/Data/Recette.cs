@@ -22,6 +22,7 @@ namespace TP214E.Data
         {
             NomRecette = pNomrecette;
             Vendant = pVendant;
+            ListeIngredients = new List<(double, Aliment)>();
         }
 
         public ObjectId Id

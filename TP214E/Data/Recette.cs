@@ -10,9 +10,9 @@ namespace TP214E.Data
 
         private string nomRecette;
 
-        private List<(double, Aliment)> listeIngredients;
-
         private decimal vendant;
+
+        private List<(double, Aliment)> listeIngredients;
 
         public Recette()
         {
@@ -25,6 +25,11 @@ namespace TP214E.Data
             ListeIngredients = new List<(double, Aliment)>();
         }
 
+        public ObjectId Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         public string NomRecette
         {
@@ -43,17 +48,19 @@ namespace TP214E.Data
             }
         }
 
-        public ObjectId Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
         public List<(double, Aliment)> ListeIngredients
         {
             get { return listeIngredients; }
-            set 
+            set
             {
+                //foreach ((double quantite, Aliment aliment) in value)
+                //{
+                //    if (quantite <= 0)
+                //    {
+                //        throw new ArgumentException("La quantite des doit etre supérieure à zéro");
+                //    }
+                //}
+
                 listeIngredients = value;
             }
         }
@@ -76,7 +83,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return String.Format("{0:c} - {1}", Vendant, NomRecette);
+            return String.Format("{1}", Vendant, NomRecette);
         }
     }
 }

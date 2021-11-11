@@ -14,7 +14,8 @@ namespace TP214E.Data
         private decimal coutArticle;
 
         public ArticleCommande()
-        { }
+        { 
+        }
 
         public ArticleCommande(int pQuantiteArticle, Recette pArticle)
         {

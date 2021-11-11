@@ -5,6 +5,7 @@ namespace TP214E.Data
 {
     public interface IAccesDonnees
     {
+
         MongoClient OuvrirConnexion();
         IMongoDatabase ConnecterBaseDonnees();
         List<Aliment> ObtenirCollectionAliments();

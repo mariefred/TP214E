@@ -7,7 +7,6 @@ namespace TP214E.Data
     {
         string NomRecette { get; set; }
         ObjectId Id { get; set; }
-        List<(double, Aliment)> ListeIngredients { get; set; }
         decimal Vendant { get; set; }
         string ToString();
     }

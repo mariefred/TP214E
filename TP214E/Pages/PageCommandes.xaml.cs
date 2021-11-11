@@ -79,7 +79,7 @@ namespace TP214E.Pages
             return estUnique;
         }
 
-        private void AjouterPlatACommande(Recette pRecetteSelectionnee)
+        public void AjouterPlatACommande(Recette pRecetteSelectionnee)
         {
             ArticleCommande article = new ArticleCommande(1, pRecetteSelectionnee);
             LstCommande.Items.Add(article);
@@ -135,7 +135,7 @@ namespace TP214E.Pages
             //TODO: faire fenêtre qui affiche le total de la commande ou laisser à l'écran la commande. Dans une situation normale le caissier 
         }
 
-        private int ObtenirNoCommande()
+        public int ObtenirNoCommande()
         {
             int noCommande;
             

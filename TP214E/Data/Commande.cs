@@ -36,7 +36,18 @@ namespace TP214E.Data
         public int NoCommande
         {
             get { return noCommande; }
-            set { noCommande = value; }
+            set
+            {
+                if (value < 1000)
+                {
+                    throw new ArgumentException("Le numéro de commande doit etre plus grand que 1000");
+                }
+                else
+                {
+                    noCommande = value;
+                }
+                
+            }
         }
 
         public List<ArticleCommande> ListeArticleCommande
@@ -64,7 +75,19 @@ namespace TP214E.Data
         public DateTime DateCommande
         {
             get { return dateCommande; }
-            set { dateCommande = value; }
+            set
+            {
+                if (value.Date == DateTime.Today.Date)
+                {
+                    dateCommande = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La commande doit être en date d'aujourd'hui");
+                }
+
+                
+            }
         }
 
         public decimal CalculerVendantCommande()

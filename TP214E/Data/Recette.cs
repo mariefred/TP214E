@@ -30,9 +30,10 @@ namespace TP214E.Data
             get { return nomRecette; }
             set
             {
-                if (value != "")
+                string nomRecu = value.Trim();
+                if (nomRecu.Length > 0)
                 {
-                    nomRecette = value;
+                    nomRecette = nomRecu;
                 }
                 else
                 {
@@ -50,7 +51,18 @@ namespace TP214E.Data
         public List<(double, Aliment)> ListeIngredients
         {
             get { return listeIngredients; }
-            set { listeIngredients = value; }
+            set 
+            {
+                foreach ((double quantite, Aliment aliment) in value)
+                {
+                    if (quantite <= 0)
+                    {
+                        throw new ArgumentException("La quantite des doit etre supérieure à zéro");
+                    }
+                }
+
+                listeIngredients = value;
+            }
         }
 
         public decimal Vendant

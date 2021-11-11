@@ -95,10 +95,7 @@ namespace TP214E
 
         private void BtnAjouter_Click(object sender, RoutedEventArgs e)
         {
-            ViderInformationsAlimentAEcran();
-            ActiverChampsFormulaire(true);
-            LblTitreActionChoisiPourAliment.Content = "AJOUTER UN ALIMENT";
-            LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.GreenYellow);
+            AcualiserAffichageSelonActionChoisi("AJOUTER UN ALIMENT");
             estPourAjouter = true;
             estPourModifier = false;
             estPourSupprimer = false;
@@ -106,25 +103,29 @@ namespace TP214E
 
         private void BtnModifier_Click(object sender, RoutedEventArgs e)
         {
-            ViderInformationsAlimentAEcran();
-            ActiverChampsFormulaire(true);
-            LblTitreActionChoisiPourAliment.Content = "MODIFIER UN ALIMENT";
-            LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.GreenYellow);
+            AcualiserAffichageSelonActionChoisi("MODIFIER UN ALIMENT");
             estPourAjouter = false;
             estPourModifier = true;
             estPourSupprimer = false;
         }
 
+
         private void BtnSupprimer_Click(object sender, RoutedEventArgs e)
         {
-            ViderInformationsAlimentAEcran();
-            ActiverChampsFormulaire(false);
-            LblTitreActionChoisiPourAliment.Content = "SUPPRIMER UN ALIMENT";
-            LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.GreenYellow);
+            AcualiserAffichageSelonActionChoisi("SUPPRIMER UN ALIMENT");
             estPourAjouter = false;
             estPourModifier = false;
             estPourSupprimer = true;
         }
+
+        private void AcualiserAffichageSelonActionChoisi(string pTitreActionChoisi)
+        {
+            ViderInformationsAlimentAEcran();
+            ActiverChampsFormulaire(true);
+            LblTitreActionChoisiPourAliment.Content = pTitreActionChoisi;
+            LblTitreActionChoisiPourAliment.Background = new SolidColorBrush(Colors.GreenYellow);
+        }
+
         private void BtnAnnuler_Click(object sender, RoutedEventArgs e)
         {
             ViderInformationsAlimentAEcran();

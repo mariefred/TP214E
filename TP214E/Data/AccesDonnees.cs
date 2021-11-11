@@ -7,11 +7,11 @@ namespace TP214E.Data
 {
     public class AccesDonnees : IAccesDonnees
     {
-        public MongoClient mongoDBClient;
-        public IMongoDatabase baseDonnees;
-        public IMongoCollection<Aliment> collectionAliment;
-        public IMongoCollection<Commande> collectionCommande;
-        public IMongoCollection<Recette> collectionRecettes;
+        private MongoClient mongoDBClient;
+        private IMongoDatabase baseDonnees;
+        private IMongoCollection<Aliment> collectionAliment;
+        private IMongoCollection<Commande> collectionCommande;
+        private IMongoCollection<Recette> collectionRecettes;
 
         public AccesDonnees()
         {

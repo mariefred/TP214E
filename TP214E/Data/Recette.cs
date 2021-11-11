@@ -10,20 +10,23 @@ namespace TP214E.Data
 
         private string nomRecette;
 
-        private List<(double, Aliment)> listeIngredients;
-
         private decimal vendant;
 
         public Recette()
         {
         }
 
-        public Recette(string pNomrecette)
+        public Recette(string pNomrecette, decimal pVendant)
         {
             NomRecette = pNomrecette;
-            ListeIngredients = new List<(double, Aliment)>();
+            Vendant = pVendant;
         }
 
+        public ObjectId Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         public string NomRecette
         {
@@ -39,18 +42,6 @@ namespace TP214E.Data
                     throw new ArgumentException("Le nom de la recette est vide.");
                 }
             }
-        }
-
-        public ObjectId Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public List<(double, Aliment)> ListeIngredients
-        {
-            get { return listeIngredients; }
-            set { listeIngredients = value; }
         }
 
         public decimal Vendant
@@ -71,7 +62,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return String.Format("{0:c} - {1}", Vendant, NomRecette);
+            return String.Format("{1}", Vendant, NomRecette);
         }
     }
 }

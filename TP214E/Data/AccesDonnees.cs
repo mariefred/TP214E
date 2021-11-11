@@ -101,7 +101,6 @@ namespace TP214E.Data
             return listeRecettes;
         }
 
-        //Faire gestion erreurs?
         public void CreerCommande(Commande pCommande)
         {
             collectionCommande.InsertOne(pCommande);

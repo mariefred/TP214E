@@ -18,9 +18,10 @@ namespace TP214E.Data
         {
         }
 
-        public Recette(string pNomrecette)
+        public Recette(string pNomrecette, decimal pVendant)
         {
             NomRecette = pNomrecette;
+            Vendant = pVendant;
             ListeIngredients = new List<(double, Aliment)>();
         }
 
@@ -53,14 +54,6 @@ namespace TP214E.Data
             get { return listeIngredients; }
             set 
             {
-                foreach ((double quantite, Aliment aliment) in value)
-                {
-                    if (quantite <= 0)
-                    {
-                        throw new ArgumentException("La quantite des doit etre supérieure à zéro");
-                    }
-                }
-
                 listeIngredients = value;
             }
         }

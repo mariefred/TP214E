@@ -62,7 +62,7 @@ namespace TP214E.Pages
             }
         }
 
-        private bool ValiderPlatUnique(Recette pRecetteSelectionnee)
+        public bool ValiderPlatUnique(Recette pRecetteSelectionnee)
         {
             bool estUnique = true;
 
@@ -120,20 +120,31 @@ namespace TP214E.Pages
         {
             commande = new Commande(ObtenirNoCommande());
             commande.DateCommande = DateTime.Now;
-            
-            //TODO Faire validation si commande vide
-            foreach (ArticleCommande article in LstCommande.Items)
+    
+            if (LstCommande.Items.Count > 0 )
             {
-                commande.ListeArticleCommande.Add(article);
-            }
+                foreach (ArticleCommande article in LstCommande.Items)
+                {
+                    commande.ListeArticleCommande.Add(article);
+                }
 
-            commande.CalculerVendantCommande();
-            PageAccueil.listeCommandes.Add(commande);
-            PageAccueil.dal.CreerCommande(commande);
-            ReinitialiserApresCommande();
+                commande.CalculerVendantCommande();
+                PageAccueil.listeCommandes.Add(commande);
+                PageAccueil.dal.CreerCommande(commande);
+                ReinitialiserApresCommande();
+            }
+            else
+            {
+                MessageBox.Show("La commande doit contenir des plats pour être enregistrer.",
+                    "Attention",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+            
             
             //TODO: faire fenêtre qui affiche le total de la commande ou laisser à l'écran la commande. Dans une situation normale le caissier 
         }
+
 
         public int ObtenirNoCommande()
         {
@@ -149,7 +160,7 @@ namespace TP214E.Pages
             return noCommande;
         }
 
-        private void CalculerTotalCommandeEnCours()
+        public void CalculerTotalCommandeEnCours()
         {
             decimal total = 0;
             foreach (ArticleCommande article in LstCommande.Items)

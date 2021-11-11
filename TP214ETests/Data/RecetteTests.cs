@@ -14,7 +14,7 @@ namespace TP214E.Data.Tests
         public void Test_constructeur_avec_parametre()
         {
             string nomRecette = "Bruger BLT";
-            Recette recette = new Recette(nomRecette);
+            Recette recette = new Recette(nomRecette, 100);
 
             Assert.AreEqual(nomRecette, recette.NomRecette);
             Assert.IsNotNull(recette.ListeIngredients);
@@ -70,8 +70,7 @@ namespace TP214E.Data.Tests
         [TestMethod()]
         public void Test_methode_to_string()
         {
-            Recette burgerBLT = new Recette("Burger BLT");
-            burgerBLT.Vendant = 100;
+            Recette burgerBLT = new Recette("Burger BLT", 100);
 
             Assert.AreEqual("100,00 $ - Burger BLT", burgerBLT.ToString());
         }

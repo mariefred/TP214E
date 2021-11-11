@@ -101,15 +101,32 @@ namespace TP214E.Data
             return listeRecettes;
         }
 
-        //Faire gestion erreurs?
-        public void CreerCommande(Commande pCommande)
+        public bool CreerCommande(Commande pCommande)
         {
-            collectionCommande.InsertOne(pCommande);
+            try
+            {
+                collectionCommande.InsertOne(pCommande);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException("Impossible de créer une commande dans la base de donnée");
+            }
+            
         }
 
-        public void CreerAliment(Aliment pAliment)
+        public bool CreerAliment(Aliment pAliment)
         {
-            collectionAliment.InsertOne(pAliment);
+            try
+            {
+                collectionAliment.InsertOne(pAliment);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException("Impossible de créer un aliment dans la base de donnée");
+            }
+            
         }
 
         public void SupprimerAliment(Aliment pAliment)

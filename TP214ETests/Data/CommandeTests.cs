@@ -25,11 +25,17 @@ namespace TP214E.Data.Tests
         [TestMethod()]
         public void Test_constructeur_sans_parametre()
         {
-
             Commande commande = new Commande();
-
             Assert.IsNotNull(commande.ListeArticleCommande);
         }
+
+        [TestMethod()]
+        public void Test_id_est_sans_espace()
+        {
+            Commande commande = new Commande();
+            // TODO : ajouter mocking pour tester id?
+        }
+
 
         [TestMethod()]
         public void Test_execption_sur_constructeur_si_no_commande_plus_petit_que_1000()

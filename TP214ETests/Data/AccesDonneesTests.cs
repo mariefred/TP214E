@@ -4,16 +4,24 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Moq;
+using MongoDB.Driver;
 
 namespace TP214E.Data.Tests
 {
     [TestClass()]
     public class AccesDonneesTests
     {
+        
         [TestMethod()]
-        public void Test()
+        public void Tester_Connexion_Base_Donnees()
         {
-            Assert.Fail();
+            var parametres = new MongoDatabaseSettings()
+            {
+                Connection = "mongodb://test123",
+
+            }
+            
+
         }
     }
 }

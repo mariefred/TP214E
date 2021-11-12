@@ -57,13 +57,11 @@ namespace TP214E.Data.Tests
         }
 
         [TestMethod()]
-        public void Test_execption_si_date_commande_est_pas_aujourdhui()
+        public void Test_execption_si_date_commande_est_dans_le_future()
         {
             var commande = new Commande();
-            DateTime hier = DateTime.Today.AddDays(-1);
             DateTime demain = DateTime.Today.AddDays(1);
 
-            Assert.ThrowsException<ArgumentException>(() => commande.DateCommande = hier);
             Assert.ThrowsException<ArgumentException>(() => commande.DateCommande = demain);
         }
 
@@ -72,31 +70,81 @@ namespace TP214E.Data.Tests
         {
             DateTime aujourdhui = DateTime.Today;
 
-            Commande commande1000 = new Commande(1000);
-            commande1000.DateCommande = aujourdhui;
+            Commande commande = ObtenirMockCommandes()[0];
 
-            var mockBurgerBLT = new Mock<IRecette>("Burger BLT");
-            mockBurgerBLT.Object.Vendant = 100;
+            Assert.AreEqual(aujourdhui + " - 1000 = 85,00 $", commande.ToString());
+        }
 
-            var mockPoutine = new Mock<IRecette>("Poutine");
-            mockPoutine.Object.Vendant = 50;
+        private List<Commande> ObtenirMockCommandes()
+        {
 
-            List<ArticleCommande> mockArticleCommande1000 = new List<ArticleCommande>();
+            List<Commande> commandesMock = new List<Commande>
+            {
+                new Commande
+                {
+                    NoCommande = 1000,
+                    ListeArticleCommande = new List<ArticleCommande>
+                    {
+                        new ArticleCommande
+                        {
+                            Article = new Recette
+                            {
+                                NomRecette = "Burger BLT",
+                                Vendant = 20
+                            },
+                            QuantiteArticle = 2,
+                            CoutArticle = 40
 
-            var mockBurgerBLTArticle = new Mock<IArticleCommande>(2, (Recette)mockBurgerBLT.Object);
-            mockBurgerBLTArticle.Object.CalculerVendantArticle();
+                        },
+                        new ArticleCommande
+                        {
+                            Article = new Recette
+                            {
+                                NomRecette = "Burger Inter",
+                                Vendant = 15
+                            },
+                            QuantiteArticle = 3,
+                            CoutArticle = 45
 
-            var mockPoutineArticle = new Mock<IArticleCommande>(1, (Recette)mockPoutine.Object);
-            mockPoutineArticle.Object.CalculerVendantArticle();
+                        },
+                    },
+                    CoutTotalCommande = 85,
+                    DateCommande = DateTime.Today
+                },
+                new Commande
+                {
+                    NoCommande = 1001,
+                    ListeArticleCommande = new List<ArticleCommande>
+                    {
+                        new ArticleCommande
+                        {
+                            Article = new Recette
+                            {
+                                NomRecette = "Burger BLT",
+                                Vendant = 20
+                            },
+                            QuantiteArticle = 1,
+                            CoutArticle = 20
 
-            mockArticleCommande1000.Add((ArticleCommande)mockPoutineArticle.Object);
-            mockArticleCommande1000.Add((ArticleCommande)mockBurgerBLTArticle.Object);
+                        },
+                        new ArticleCommande
+                        {
+                            Article = new Recette
+                            {
+                                NomRecette = "Poutine",
+                                Vendant = 11
+                            },
+                            QuantiteArticle = 2,
+                            CoutArticle = 22
 
-            commande1000.ListeArticleCommande = mockArticleCommande1000;
+                        },
+                    },
+                    CoutTotalCommande = 42,
+                    DateCommande = DateTime.Today
+                }
+            };
 
-            commande1000.CalculerVendantCommande();
-
-            Assert.AreEqual(aujourdhui + " - 1000 = 250,00 $", commande1000.ToString());
+            return commandesMock;
         }
     }
 }

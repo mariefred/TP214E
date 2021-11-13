@@ -66,11 +66,21 @@ namespace TP214E.Data.Tests
         }
 
         [TestMethod()]
+        public void Test_methode_Calculer_Vendant_Commande()
+        {
+            Commande commande = ObtenirMockCommandes()[0];
+
+            Assert.AreEqual(85, commande.CalculerVendantCommande());
+        }
+
+        [TestMethod()]
         public void Test_methode_to_string()
         {
             DateTime aujourdhui = DateTime.Today;
 
             Commande commande = ObtenirMockCommandes()[0];
+
+            commande.CalculerVendantCommande();
 
             Assert.AreEqual(aujourdhui + " - 1000 = 85,00 $", commande.ToString());
         }
@@ -108,7 +118,6 @@ namespace TP214E.Data.Tests
 
                         },
                     },
-                    CoutTotalCommande = 85,
                     DateCommande = DateTime.Today
                 },
                 new Commande
@@ -139,7 +148,6 @@ namespace TP214E.Data.Tests
 
                         },
                     },
-                    CoutTotalCommande = 42,
                     DateCommande = DateTime.Today
                 }
             };

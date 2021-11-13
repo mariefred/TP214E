@@ -53,59 +53,262 @@ namespace TP214E.Data.Tests
             }
         }
 
-        [TestMethod]
-        public void Tester_Obtenir_Collection_Aliments()
+        [TestMethod()]
+        public void Test_recuperer_toutes_les_commandes()
+        {
+            using (var mock = AutoMock.GetLoose())
+            {
+                mock.Mock<IAccesDonnees>()
+                    .Setup(x => x.ObtenirCollectionCommandes())
+                    .Returns(ObtenirMockCommandes());
+
+                var classeAccesDonnees = mock.Create<IAccesDonnees>();
+                var attendu = ObtenirMockCommandes();
+
+                var reel = classeAccesDonnees.ObtenirCollectionCommandes();
+
+                Assert.IsTrue(reel != null);
+                Assert.AreEqual(attendu.Count, reel.Count);
+
+                for (int i = 0; i < attendu.Count; i++)
+                {
+                    Assert.AreEqual(attendu[i].NoCommande, reel[i].NoCommande);
+                    Assert.AreEqual(attendu[i].ListeArticleCommande[i].Article.NomRecette, reel[i].ListeArticleCommande[i].Article.NomRecette);
+                }
+
+            }
+
+        }
+
+        [TestMethod()]
+        public void Test_creer_commande_retour_vrai_si_commande_valide()
+        {
+            using (var mock = AutoMock.GetLoose())
+            {
+                var commande = ObtenirMockCommandes()[0];
+                mock.Mock<IAccesDonnees>()
+                    .Setup(x => x.CreerCommande(commande))
+                    .Returns(true);
+
+                var classeAccesDonnees = mock.Create<IAccesDonnees>();
+
+                var reel = classeAccesDonnees.CreerCommande(commande);
+
+                Assert.AreEqual(true, reel);
+
+                mock.Mock<IAccesDonnees>()
+                    .Verify(x => x.CreerCommande(commande), Times.Exactly(1));
+
+            }
+
+        }
+
+        [TestMethod()]
+        public void Test_recuperer_toutes_les_Recettes()
+        {
+            using (var mock = AutoMock.GetLoose())
+            {
+                List<Recette> recettesMock = new List<Recette>
+                {
+                    ObtenirMockCommandes()[0].ListeArticleCommande[0].Article,
+                    ObtenirMockCommandes()[0].ListeArticleCommande[1].Article,
+                };
+
+                mock.Mock<IAccesDonnees>()
+                    .Setup(x => x.ObtenirCollectionRecettes())
+                    .Returns(recettesMock);
+
+                var classeAccesDonnees = mock.Create<IAccesDonnees>();
+
+
+                var reel = classeAccesDonnees.ObtenirCollectionRecettes();
+
+                Assert.IsTrue(reel != null);
+                Assert.AreEqual(recettesMock.Count, reel.Count);
+
+                for (int i = 0; i < recettesMock.Count; i++)
+                {
+                    Assert.AreEqual(recettesMock[i].NomRecette, reel[i].NomRecette);
+                    Assert.AreEqual(recettesMock[i].Vendant, reel[i].Vendant);
+                }
+
+            }
+
+        }
+
+        [TestMethod()]
+        public void Test_recuperer_tout_les_aliments()
         {
             using (var mock = AutoMock.GetLoose())
             {
                 mock.Mock<IAccesDonnees>()
                     .Setup(x => x.ObtenirCollectionAliments())
-                    .Returns(ObtenirMockCollectionAliments());
+                    .Returns(ObtenirListeAlimentMock());
 
-                var aliment = mock.Create<IAccesDonnees>();
-                var donneesAttendues = ObtenirMockCollectionAliments();
+                var classeAccesDonnees = mock.Create<IAccesDonnees>();
 
-                var actuel = aliment.ObtenirCollectionAliments();
+                var attendu = ObtenirListeAlimentMock();
 
-                Assert.IsTrue(actuel != null);
-                Assert.AreEqual(donneesAttendues.Count, actuel.Count);
+                var reel = classeAccesDonnees.ObtenirCollectionAliments();
 
-                for (int i = 0; i < donneesAttendues.Count; i++)
+                Assert.IsTrue(reel != null);
+                Assert.AreEqual(attendu.Count, reel.Count);
+
+                for (int i = 0; i < attendu.Count; i++)
                 {
-                    Assert.AreEqual(donneesAttendues[i].Nom, actuel[i].Nom);
-                    Assert.AreEqual(donneesAttendues[i].Nom, actuel[i].Nom);
+                    Assert.AreEqual(attendu[i].Nom, reel[i].Nom);
+                    Assert.AreEqual(attendu[i].Quantite, reel[i].Quantite);
                 }
+
             }
+
         }
 
-        private List<Aliment> ObtenirMockCollectionAliments()
+        [TestMethod()]
+        public void Test_creer_aliment_retour_vrai_si_aliment_valide()
         {
-            List<Aliment> mockCollectionAliments = new List<Aliment>
+            using (var mock = AutoMock.GetLoose())
             {
-                new Aliment
+                var alimentMock = ObtenirListeAlimentMock()[0];
+                mock.Mock<IAccesDonnees>()
+                    .Setup(x => x.CreerAliment(alimentMock))
+                    .Returns(true);
+
+                var classeAccesDonnees = mock.Create<IAccesDonnees>();
+
+                var reel = classeAccesDonnees.CreerAliment(alimentMock);
+
+                Assert.AreEqual(true, reel);
+
+                mock.Mock<IAccesDonnees>()
+                    .Verify(x => x.CreerAliment(alimentMock), Times.Exactly(1));
+
+            }
+
+        }
+
+        [TestMethod()]
+        public void Test_suprimer_aliment_retour_vrai_si_aliment_valide()
+        {
+            using (var mock = AutoMock.GetLoose())
+            {
+                var alimentMock = ObtenirListeAlimentMock()[0];
+                mock.Mock<IAccesDonnees>()
+                    .Setup(x => x.SupprimerAliment(alimentMock));
+
+
+                var classeAccesDonnees = mock.Create<IAccesDonnees>();
+
+                classeAccesDonnees.SupprimerAliment(alimentMock);
+
+                mock.Mock<IAccesDonnees>()
+                    .Verify(x => x.SupprimerAliment(alimentMock), Times.Exactly(1));
+
+            }
+
+        }
+
+
+        private List<Commande> ObtenirMockCommandes()
+        {
+
+            List<Commande> commandesMock = new List<Commande>
+            {
+                new Commande
                 {
-                    Nom = "Concombre",
-                    Quantite = 12,
-                    UniteMesure = Enumeration.UniteMesure.unite,
-                    CoutVente = (decimal)0.89
+                    NoCommande = 1000,
+                    ListeArticleCommande = new List<ArticleCommande>
+                    {
+                        new ArticleCommande
+                        {
+                            Article = new Recette
+                            {
+                                NomRecette = "Burger BLT",
+                                Vendant = 20
+                            },
+                            QuantiteArticle = 2,
+                            CoutArticle = 40
+
+                        },
+                        new ArticleCommande
+                        {
+                            Article = new Recette
+                            {
+                                NomRecette = "Burger Inter",
+                                Vendant = 15
+                            },
+                            QuantiteArticle = 3,
+                            CoutArticle = 45
+
+                        },
+                    },
+                    CoutTotalCommande = 85,
+                    DateCommande = DateTime.Today
                 },
-                new Aliment
+                new Commande
                 {
-                    Nom = "Mayonnaise",
-                    Quantite = 16,
-                    UniteMesure = Enumeration.UniteMesure.litre,
-                    CoutVente = (decimal)35.67
-                },
-                new Aliment
-                {
-                    Nom = "Boeuf haché",
-                    Quantite = 10,
-                    UniteMesure = Enumeration.UniteMesure.kilogramme,
-                    CoutVente = (decimal)26.42
+                    NoCommande = 1001,
+                    ListeArticleCommande = new List<ArticleCommande>
+                    {
+                        new ArticleCommande
+                        {
+                            Article = new Recette
+                            {
+                                NomRecette = "Burger BLT",
+                                Vendant = 20
+                            },
+                            QuantiteArticle = 1,
+                            CoutArticle = 20
+
+                        },
+                        new ArticleCommande
+                        {
+                            Article = new Recette
+                            {
+                                NomRecette = "Poutine",
+                                Vendant = 11
+                            },
+                            QuantiteArticle = 2,
+                            CoutArticle = 22
+
+                        },
+                    },
+                    CoutTotalCommande = 42,
+                    DateCommande = DateTime.Today
                 }
             };
-            return mockCollectionAliments;
+
+            return commandesMock;
         }
 
+        private List<Aliment> ObtenirListeAlimentMock()
+        {
+            List<Aliment> alimentMock = new List<Aliment>
+                {
+                    new Aliment
+                    {
+                        Nom = "Tomates",
+                        Quantite = 20,
+                        UniteMesure = Enumeration.UniteMesure.unite,
+                        CoutVente = 1
+                    },
+                    new Aliment
+                    {
+                        Nom = "Bacon",
+                        Quantite = 100,
+                        UniteMesure = Enumeration.UniteMesure.kilogramme,
+                        CoutVente = (decimal) 0.15
+                    },
+                    new Aliment
+                    {
+                        Nom = "Laitue",
+                        Quantite = 200,
+                        UniteMesure = Enumeration.UniteMesure.kilogramme,
+                        CoutVente = (decimal) 0.05
+                    }
+                };
+
+            return alimentMock;
+        }
     }
 }

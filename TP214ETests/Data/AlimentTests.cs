@@ -75,7 +75,6 @@ namespace TP214E.Data.Tests
             Aliment aliment = new Aliment("Pommes", 2, Enumeration.UniteMesure.kilogramme, (decimal)25.25);
 
             Assert.AreEqual("Pommes - 25,25 $ - 2 kilogramme", aliment.ToString());
-
         }
     }
 }

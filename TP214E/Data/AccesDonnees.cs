@@ -26,7 +26,7 @@ namespace TP214E.Data
             {
                 dbClient = new MongoClient("mongodb://localhost:27017/");
             }
-            catch (Exception ex) //Inscrire la bonne exception?
+            catch (Exception ex)
             {
                 MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur",
                     MessageBoxButton.OK, MessageBoxImage.Error);

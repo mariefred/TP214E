@@ -31,7 +31,6 @@ namespace TP214E
             }
         }
 
-        //Suggestion pour Sarah: faire une sule fonction avec paramètre bool.
         private void ActiverChampsFormulaire(bool pActiver)
         {
             TxTNom.IsEnabled = pActiver;
@@ -271,6 +270,5 @@ namespace TP214E
                     MessageBoxImage.Error);
             }
         }
-
     }
 }

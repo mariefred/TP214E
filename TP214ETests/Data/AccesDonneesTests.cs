@@ -115,8 +115,6 @@ namespace TP214E.Data.Tests
                     .Returns(recettesMock);
 
                 var classeAccesDonnees = mock.Create<IAccesDonnees>();
-
-
                 var reel = classeAccesDonnees.ObtenirCollectionRecettes();
 
                 Assert.IsTrue(reel != null);
@@ -140,9 +138,7 @@ namespace TP214E.Data.Tests
                     .Returns(ObtenirListeAlimentMock());
 
                 var classeAccesDonnees = mock.Create<IAccesDonnees>();
-
                 var attendu = ObtenirListeAlimentMock();
-
                 var reel = classeAccesDonnees.ObtenirCollectionAliments();
 
                 Assert.IsTrue(reel != null);
@@ -167,7 +163,6 @@ namespace TP214E.Data.Tests
                     .Returns(true);
 
                 var classeAccesDonnees = mock.Create<IAccesDonnees>();
-
                 var reel = classeAccesDonnees.CreerAliment(alimentMock);
 
                 Assert.AreEqual(true, reel);
@@ -185,7 +180,6 @@ namespace TP214E.Data.Tests
                 var alimentMock = ObtenirListeAlimentMock()[0];
                 mock.Mock<IAccesDonnees>()
                     .Setup(x => x.SupprimerAliment(alimentMock));
-
 
                 var classeAccesDonnees = mock.Create<IAccesDonnees>();
 

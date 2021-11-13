@@ -140,9 +140,6 @@ namespace TP214E.Pages
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
-            
-            
-            //TODO: faire fenêtre qui affiche le total de la commande ou laisser à l'écran la commande. Dans une situation normale le caissier 
         }
 
 

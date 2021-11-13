@@ -25,7 +25,6 @@ namespace TP214E
         public static List<Recette> listeRecettes;
         public static List<Commande> listeCommandes;
         public static List<Aliment> listeAliments;
-        
 
         public PageAccueil()
         {

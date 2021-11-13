@@ -30,14 +30,6 @@ namespace TP214E.Data.Tests
         }
 
         [TestMethod()]
-        public void Test_id_est_sans_espace()
-        {
-            Commande commande = new Commande();
-            // TODO : ajouter mocking pour tester id?
-        }
-
-
-        [TestMethod()]
         public void Test_execption_sur_constructeur_si_no_commande_plus_petit_que_1000()
         {
             int noCommande = 999;
@@ -102,7 +94,6 @@ namespace TP214E.Data.Tests
                             },
                             QuantiteArticle = 2,
                             CoutArticle = 40
-
                         },
                         new ArticleCommande
                         {
@@ -113,7 +104,6 @@ namespace TP214E.Data.Tests
                             },
                             QuantiteArticle = 3,
                             CoutArticle = 45
-
                         },
                     },
                     DateCommande = DateTime.Today
@@ -132,7 +122,6 @@ namespace TP214E.Data.Tests
                             },
                             QuantiteArticle = 1,
                             CoutArticle = 20
-
                         },
                         new ArticleCommande
                         {
@@ -143,7 +132,6 @@ namespace TP214E.Data.Tests
                             },
                             QuantiteArticle = 2,
                             CoutArticle = 22
-
                         },
                     },
                     DateCommande = DateTime.Today

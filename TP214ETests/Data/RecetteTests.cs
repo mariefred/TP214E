@@ -73,7 +73,5 @@ namespace TP214E.Data.Tests
 
             Assert.AreEqual("100,00 $ - Burger BLT", burgerBLT.ToString());
         }
-
-
     }
 }

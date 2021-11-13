@@ -84,7 +84,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return String.Format("{0} - {1} = {2:c}", QuantiteArticle, Article, CoutArticle);
+            return String.Format("{0} - {1} = {2:c}", QuantiteArticle, Article.NomRecette, CoutArticle);
         }
     }
 }

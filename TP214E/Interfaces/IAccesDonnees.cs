@@ -15,5 +15,6 @@ namespace TP214E.Data
         bool CreerAliment(Aliment pAliment);
         void SupprimerAliment(Aliment pAliment);
         void MettreAJourAliment(Aliment pAliment);
+
     }
 }

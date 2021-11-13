@@ -11,17 +11,10 @@ namespace TP214E.Data.Tests
     [TestClass()]
     public class AccesDonneesTests
     {
-        
         [TestMethod()]
-        public void Tester_Connexion_Base_Donnees()
+        public void Test()
         {
-            var parametres = new MongoDatabaseSettings()
-            {
-                Connection = "mongodb://test123",
-
-            }
-            
-
+            Assert.Fail();
         }
     }
 }

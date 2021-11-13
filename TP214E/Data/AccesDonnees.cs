@@ -46,6 +46,7 @@ namespace TP214E.Data
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                
 
             }
 
@@ -132,8 +133,16 @@ namespace TP214E.Data
 
         public void SupprimerAliment(Aliment pAliment)
         {
-            var alimentRecherche = Builders<Aliment>.Filter.Eq(aliment => aliment.Id, pAliment.Id);
-            collectionAliment.DeleteOne(alimentRecherche);
+            try
+            {
+                var alimentRecherche = Builders<Aliment>.Filter.Eq(aliment => aliment.Id, pAliment.Id);
+                collectionAliment.DeleteOne(alimentRecherche);
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException("Impossible de supprimer un aliment dans la base de donnée");
+            }
+            
         }
 
         public void MettreAJourAliment(Aliment pAliment)

@@ -53,13 +53,17 @@ namespace TP214E.Data
             get { return listeIngredients; }
             set
             {
-                //foreach ((double quantite, Aliment aliment) in value)
-                //{
-                //    if (quantite <= 0)
-                //    {
-                //        throw new ArgumentException("La quantite des doit etre supérieure à zéro");
-                //    }
-                //}
+                if (value != null)
+                {
+                    foreach ((double quantite, Aliment aliment) in value)
+                    {
+                        if (quantite <= 0)
+                        {
+                            throw new ArgumentException("La quantite des doit etre supérieure à zéro");
+                        }
+                    }
+                }
+                
 
                 listeIngredients = value;
             }
@@ -83,7 +87,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return String.Format("{1}", Vendant, NomRecette);
+            return String.Format("{0:c} - {1}", Vendant, NomRecette);
         }
     }
 }

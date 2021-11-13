@@ -52,15 +52,15 @@ namespace TP214E.Data.Tests
         {
             Recette burgerBLT = new Recette();
 
-            var bacon = new Mock<IAliment>();
-            var laitue = new Mock<IAliment>();
-            var tomate = new Mock<IAliment>();
+            var bacon = new Aliment();
+            var laitue = new Aliment();
+            var tomate = new Aliment();
 
             List<(double, Aliment)> alimentsBurgerBLT = new List<(double, Aliment)>();
 
-            alimentsBurgerBLT.Add((3, (Aliment)bacon.Object));
-            alimentsBurgerBLT.Add((4, (Aliment)laitue.Object));
-            alimentsBurgerBLT.Add((-5, (Aliment)tomate.Object));
+            alimentsBurgerBLT.Add((3, bacon));
+            alimentsBurgerBLT.Add((4, laitue));
+            alimentsBurgerBLT.Add((-5, tomate));
 
 
             Assert.ThrowsException<ArgumentException>(() => burgerBLT.ListeIngredients = alimentsBurgerBLT);

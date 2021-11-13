@@ -77,7 +77,7 @@ namespace TP214E.Data
             get { return dateCommande; }
             set
             {
-                if (value.Date < DateTime.Today.Date)
+                if (value.Date <= DateTime.Today.Date)
                 {
                     dateCommande = value;
                 }

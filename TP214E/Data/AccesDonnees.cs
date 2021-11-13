@@ -41,13 +41,11 @@ namespace TP214E.Data
 
             try
             {
-                bdCourante = mongoDBClient.GetDatabase("TP2DB");
+                bdCourante = mongoDBClient.GetDatabase("TB2DB");
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
                 Console.WriteLine(e);
-                
-
             }
 
             return bdCourante;
@@ -122,13 +120,11 @@ namespace TP214E.Data
             {
                 collectionAliment.InsertOne(pAliment);
                 return true;
-
             }
             catch (Exception)
             {
                 throw new InvalidOperationException("Impossible de créer un aliment dans la base de donnée");
             }
-            
         }
 
         public void SupprimerAliment(Aliment pAliment)
@@ -142,7 +138,6 @@ namespace TP214E.Data
             {
                 throw new InvalidOperationException("Impossible de supprimer un aliment dans la base de donnée");
             }
-            
         }
 
         public void MettreAJourAliment(Aliment pAliment)

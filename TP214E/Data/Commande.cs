@@ -46,7 +46,6 @@ namespace TP214E.Data
                 {
                     noCommande = value;
                 }
-                
             }
         }
 
@@ -85,8 +84,6 @@ namespace TP214E.Data
                 {
                     throw new ArgumentException("La commande doit être en date d'aujourd'hui");
                 }
-
-                
             }
         }
 
@@ -103,6 +100,5 @@ namespace TP214E.Data
         {
             return String.Format("{0} - {1} = {2:c}", DateCommande, NoCommande, CoutTotalCommande);
         }
-
     }
 }

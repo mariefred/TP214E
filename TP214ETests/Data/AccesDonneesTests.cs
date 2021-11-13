@@ -75,9 +75,7 @@ namespace TP214E.Data.Tests
                     Assert.AreEqual(attendu[i].NoCommande, reel[i].NoCommande);
                     Assert.AreEqual(attendu[i].ListeArticleCommande[i].Article.NomRecette, reel[i].ListeArticleCommande[i].Article.NomRecette);
                 }
-
             }
-
         }
 
         [TestMethod()]
@@ -98,9 +96,7 @@ namespace TP214E.Data.Tests
 
                 mock.Mock<IAccesDonnees>()
                     .Verify(x => x.CreerCommande(commande), Times.Exactly(1));
-
             }
-
         }
 
         [TestMethod()]
@@ -131,9 +127,7 @@ namespace TP214E.Data.Tests
                     Assert.AreEqual(recettesMock[i].NomRecette, reel[i].NomRecette);
                     Assert.AreEqual(recettesMock[i].Vendant, reel[i].Vendant);
                 }
-
             }
-
         }
 
         [TestMethod()]
@@ -159,9 +153,7 @@ namespace TP214E.Data.Tests
                     Assert.AreEqual(attendu[i].Nom, reel[i].Nom);
                     Assert.AreEqual(attendu[i].Quantite, reel[i].Quantite);
                 }
-
             }
-
         }
 
         [TestMethod()]
@@ -182,9 +174,7 @@ namespace TP214E.Data.Tests
 
                 mock.Mock<IAccesDonnees>()
                     .Verify(x => x.CreerAliment(alimentMock), Times.Exactly(1));
-
             }
-
         }
 
         [TestMethod()]
@@ -203,15 +193,12 @@ namespace TP214E.Data.Tests
 
                 mock.Mock<IAccesDonnees>()
                     .Verify(x => x.SupprimerAliment(alimentMock), Times.Exactly(1));
-
             }
-
         }
 
 
         private List<Commande> ObtenirMockCommandes()
         {
-
             List<Commande> commandesMock = new List<Commande>
             {
                 new Commande
@@ -270,14 +257,12 @@ namespace TP214E.Data.Tests
                             },
                             QuantiteArticle = 2,
                             CoutArticle = 22
-
                         },
                     },
                     CoutTotalCommande = 42,
                     DateCommande = DateTime.Today
                 }
             };
-
             return commandesMock;
         }
 
@@ -307,7 +292,6 @@ namespace TP214E.Data.Tests
                         CoutVente = (decimal) 0.05
                     }
                 };
-
             return alimentMock;
         }
     }

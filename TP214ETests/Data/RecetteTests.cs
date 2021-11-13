@@ -62,7 +62,6 @@ namespace TP214E.Data.Tests
             alimentsBurgerBLT.Add((4, laitue));
             alimentsBurgerBLT.Add((-5, tomate));
 
-
             Assert.ThrowsException<ArgumentException>(() => burgerBLT.ListeIngredients = alimentsBurgerBLT);
         }
 

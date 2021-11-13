@@ -45,7 +45,6 @@ namespace TP214E.Data.Tests
             Commande commande;
 
             Assert.ThrowsException<ArgumentException>(() => commande = new Commande(noCommande));
-
         }
 
         [TestMethod()]
@@ -77,7 +76,6 @@ namespace TP214E.Data.Tests
 
         private List<Commande> ObtenirMockCommandes()
         {
-
             List<Commande> commandesMock = new List<Commande>
             {
                 new Commande
@@ -143,7 +141,6 @@ namespace TP214E.Data.Tests
                     DateCommande = DateTime.Today
                 }
             };
-
             return commandesMock;
         }
     }

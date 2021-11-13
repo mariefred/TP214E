@@ -31,7 +31,6 @@ namespace TP214E.Data
                 MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
             return dbClient;
         }
 
@@ -47,7 +46,6 @@ namespace TP214E.Data
             {
                 Console.WriteLine(e);
             }
-
             return bdCourante;
         }
 
@@ -64,7 +62,6 @@ namespace TP214E.Data
             {
                 Console.WriteLine(e);
             }
-
             return listeAliments;
         }
 
@@ -80,7 +77,6 @@ namespace TP214E.Data
             {
                 Console.WriteLine(e);
             }
-
             return listeCommandes;
         }
 
@@ -96,7 +92,6 @@ namespace TP214E.Data
             {
                 Console.WriteLine(e);
             }
-
             return listeRecettes;
         }
 
@@ -111,7 +106,6 @@ namespace TP214E.Data
             {
                 throw new InvalidOperationException("Impossible de créer une commande dans la base de donnée");
             }
-            
         }
 
         public bool CreerAliment(Aliment pAliment)

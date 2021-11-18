@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "618d1b84aa189b6ac0b04bbd"
+  },
+  "NomRecette": "Burger BLT",
+  "Vendant": "19.99"
+},{
+  "_id": {
+    "$oid": "618d1be4aa189b6ac0b04bbe"
+  },
+  "NomRecette": "Burger Inter",
+  "Vendant": "17.99"
+},{
+  "_id": {
+    "$oid": "6191b857eff0a06cc8ab69f2"
+  },
+  "NomRecette": "Poutine",
+  "Vendant": "12.50"
+}]

@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "618d3b26ad270426af599a57"
+  },
+  "NoCommande": 1000,
+  "ListeArticleCommande": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000000"
+      },
+      "QuantiteArticle": 1,
+      "Article": {
+        "NomRecette": "Burger BLT",
+        "_id": {
+          "$oid": "618d1b84aa189b6ac0b04bbd"
+        },
+        "ListeIngredients": null,
+        "Vendant": "19.99"
+      },
+      "CoutArticle": "19.99"
+    }
+  ],
+  "CoutTotalCommande": "19.99",
+  "DateCommande": {
+    "$date": "2021-11-11T15:47:50.977Z"
+  }
+},{
+  "_id": {
+    "$oid": "618d3c3fc5651e49296d0ea5"
+  },
+  "NoCommande": 1000,
+  "ListeArticleCommande": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000000"
+      },
+      "QuantiteArticle": 3,
+      "Article": {
+        "NomRecette": "Burger Inter",
+        "_id": {
+          "$oid": "618d1be4aa189b6ac0b04bbe"
+        },
+        "Vendant": "17.99"
+      },
+      "CoutArticle": "53.97"
+    }
+  ],
+  "CoutTotalCommande": "53.97",
+  "DateCommande": {
+    "$date": "2021-11-11T15:52:31.537Z"
+  }
+}]

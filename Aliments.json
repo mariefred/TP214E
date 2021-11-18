@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "6189d0fca06353d7c46e3dcb"
+  },
+  "Nom": "Tomates",
+  "Quantite": 8,
+  "UniteMesure": 4,
+  "CoutVente": "1"
+},{
+  "_id": {
+    "$oid": "6189d1e46b38d1365469aa08"
+  },
+  "Nom": "Fromage Cheddar",
+  "Quantite": 1,
+  "UniteMesure": 1,
+  "CoutVente": "2"
+}]
